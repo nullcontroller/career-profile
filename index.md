@@ -38,17 +38,13 @@ UI・ソースコード・既存資料からKnowledgeを再構築し、検索単
 
 仕様書不足のソフトウェアをUI操作・ソースコード・既存資料から読み解き、仕様をRAG向けKnowledgeとして構造化。
 
-[詳細：Zenn](https://zenn.dev/nullcontroller/books/db491398459cbc)
-
-### AI-Assisted Software Engineering
-
-保守・改修の仕様調査、コード解析、影響範囲候補抽出、設計検討、テスト観点整理にAIを活用。最終的な設計・採用判断は人間が担います。
-
-[詳細：Zenn](https://zenn.dev/nullcontroller/books/b9a9feaefb4001)
+[詳細：レガシーシステムを「理解可能な状態」にする設計手法](https://zenn.dev/nullcontroller/books/db491398459cbc)
 
 ### Legacy Modernization / Development Improvement
 
 変更影響を分析し、DPAPI / CNGを用いた暗号方式変更と異常系処理に対応。外部委託を不要化し、従来想定比で工期を約7割短縮。
+
+[詳細：3つのAIをオーケストレーションしたレガシー保守](https://zenn.dev/nullcontroller/books/b9a9feaefb4001)
 
 ## 4. Career Direction
 
