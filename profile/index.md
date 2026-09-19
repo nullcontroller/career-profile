@@ -326,6 +326,7 @@ PMやPeople Managementの経験自体を避けているわけではなく、そ�
 - **GitHub**  
   AIを業務システムへ組み込むための設計原則や、Knowledge / Context、評価、責任分界などの技術体系を整理しています。  
   https://github.com/nullcontroller/ai-design-foundations
+  
 ---
 
 公開用プロフィールのため、住所、電話番号、メールアドレス、生年月日等の個人情報は掲載していません。
