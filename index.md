@@ -1,3 +1,7 @@
+---
+title: "立林 裕太朗 | Career Profile"
+description: "Applied AI × システム企画・アーキテクチャ × レガシーモダナイゼーション"
+---
 # 立林 裕太朗｜Career Profile
 
 Applied AI × システム企画・アーキテクチャ × レガシーモダナイゼーション
