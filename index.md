@@ -73,7 +73,7 @@ UI・ソースコード・既存資料からKnowledgeを再構築し、検索単
 
 ## 7. Links
 
-- [Detailed Profile](./Recruiter_Profile.md)
+- [Detailed Profile](./profile/)
 - [LinkedIn](https://www.linkedin.com/in/%E8%A3%95%E5%A4%AA%E6%9C%97-%E7%AB%8B%E6%9E%97-99076b352/)
 - [Zenn](https://zenn.dev/nullcontroller)
 - [GitHub](https://github.com/nullcontroller/ai-design-foundations)
