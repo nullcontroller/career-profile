@@ -38,13 +38,9 @@ UI・ソースコード・既存資料からKnowledgeを再構築し、検索単
 
 仕様書不足のソフトウェアをUI操作・ソースコード・既存資料から読み解き、仕様をRAG向けKnowledgeとして構造化。
 
-[詳細：レガシーシステムを「理解可能な状態」にする設計手法](https://zenn.dev/nullcontroller/books/db491398459cbc)
-
 ### Legacy Modernization / Development Improvement
 
 変更影響を分析し、DPAPI / CNGを用いた暗号方式変更と異常系処理に対応。外部委託を不要化し、従来想定比で工期を約7割短縮。
-
-[詳細：3つのAIをオーケストレーションしたレガシー保守](https://zenn.dev/nullcontroller/books/b9a9feaefb4001)
 
 ## 4. Career Direction
 
@@ -71,9 +67,8 @@ UI・ソースコード・既存資料からKnowledgeを再構築し、検索単
 - PMO・進捗管理
 - 英語の日常使用が前提の環境
 
-## 7. Links
+## 詳細情報
 
-- [Detailed Profile](./profile/)
+- [詳しい職務経歴・希望条件を見る](./profile/)
 - [LinkedIn](https://www.linkedin.com/in/%E8%A3%95%E5%A4%AA%E6%9C%97-%E7%AB%8B%E6%9E%97-99076b352/)
-- [Zenn](https://zenn.dev/nullcontroller)
 - [GitHub](https://github.com/nullcontroller/ai-design-foundations)
