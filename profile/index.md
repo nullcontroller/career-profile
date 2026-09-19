@@ -315,17 +315,14 @@ PMやPeople Managementの経験自体を避けているわけではなく、そ�
 
 ## ポートフォリオ
 
-- **LinkedIn**  
-  職務経歴、現在の取り組み、キャリアに関する発信を掲載しています。  
-  https://www.linkedin.com/in/%E8%A3%95%E5%A4%AA%E6%9C%97-%E7%AB%8B%E6%9E%97-99076b352/
+- **[LinkedIn](https://www.linkedin.com/in/%E8%A3%95%E5%A4%AA%E6%9C%97-%E7%AB%8B%E6%9E%97-99076b352/)** 
+  職務経歴、現在の取り組み、キャリアに関する発信を掲載しています。
 
-- **Zenn**  
-  生成AI、RAG、AI Evaluation、Human in the Loop、レガシーモダナイゼーション等について、実務経験をもとにした技術記事・事例を公開しています。  
-  https://zenn.dev/nullcontroller
+- **[Zenn](https://zenn.dev/nullcontroller)** 
+  生成AI、RAG、AI Evaluation、Human in the Loop、レガシーモダナイゼーション等について、実務経験をもとにした技術記事・事例を公開しています。
 
-- **GitHub**  
-  AIを業務システムへ組み込むための設計原則や、Knowledge / Context、評価、責任分界などの技術体系を整理しています。  
-  https://github.com/nullcontroller/ai-design-foundations
+- **[GitHub](https://github.com/nullcontroller/ai-design-foundations)** 
+  AIを業務システムへ組み込むための設計原則や、Knowledge / Context、評価、責任分界などの技術体系を整理しています。
   
 ---
 
