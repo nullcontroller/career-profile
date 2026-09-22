@@ -1,0 +1,24 @@
+---
+import PublicationLink from "./PublicationLink.astro";
+import type { Entry } from "../lib/navigation";
+interface Props {
+  entries: Entry[];
+}
+const { entries } = Astro.props;
+---
+
+{entries.length > 0 && (
+  <section class="related-publications" data-related-publications>
+    <h2>Related Publications</h2>
+    <p>
+      同じテーマを扱う記事・Book。設計知識とは別の公開物として参照できます。
+    </p>
+    <div class="document-list">
+      {entries.map((entry) => (
+        <article>
+          <PublicationLink entry={entry} />
+        </article>
+      ))}
+    </div>
+  </section>
+)}

@@ -1,0 +1,62 @@
+---
+import Site from "../layouts/Site.astro";
+import { url } from "../lib/site";
+---
+
+<Site title="このサイトについて" section="about">
+  <h1>このサイトについて</h1>
+  <p class="lead">
+    立林
+    裕太朗の公開プロフィール・技術知識・実務事例・記事を、一つの場所で閲覧できる個人サイトです。
+  </p>
+  <ul>
+    <li>
+      <a href={url("career")} >キャリア</a>
+      ：職務経験、専門領域、今後の方向性と希望条件。
+    </li>
+    <li>
+      <a href={url("ai-design")}>AI設計</a>
+      ：AIを業務システムへ組み込むための設計。
+    </li>
+    <li>
+      <a href={url("ai-mathematics")}>AI数学論</a>
+      ：AIの振る舞いを数学・確率・モデルから理解する。
+    </li>
+    <li>
+      <a href={url("practices")}>実践</a>：業務・組織・開発への適用。
+    </li>
+    <li>
+      <a href={url("cases")}>事例</a>
+      ：実務での課題、設計判断、実装と結果。
+    </li>
+    <li>
+      <a href={url("articles")}>記事</a>：単発記事・Book・連載・Essay。
+    </li>
+  </ul>
+  <h2>AI Design Foundations</h2>
+  <p>
+    この名称は、AI Design・AI数学論・Practices・Case
+    Studiesにまたがる技術知識・設計体系を表します。実務や学習から得た知見を整理し、継続的に更新しています。
+  </p>
+  <p>
+    <a href={url("overview")}>全体目次</a>から各領域へ進めます。
+  </p>
+  <h2>このサイトの設計</h2>
+  <p>
+    Markdownを知識の正本として管理し、Gitで変更履歴を残しています。AIは編集・レビュー・情報構造の整理に利用し、AstroとContent
+    Collectionsで静的サイトを生成しています。Content ModelとValidationはTypeScriptで管理し、GitHub
+    ActionsでBuild・検証・Deployを行い、GitHub Pagesで公開しています。
+  </p>
+  <p>
+    本文ではMermaidによる図を利用でき、生成後の静的HTMLはサイト内検索の対象になります。こうした仕組みにより、文章・図・分類・公開工程を同じRepositoryで追跡できます。
+  </p>
+  <h3>Knowledge / Publishing as Code</h3>
+  <p>
+    知識をMarkdownとして記述し、変更を差分として確認しながら、検証と公開を自動化する考え方です。このサイトは一度完成させて終わる成果物ではなく、実務・学習・検証・発信から得た知見を継続的に取り込み、情報構造・設計原則・実装を更新するための知識基盤として運用しています。
+  </p>
+  <p>
+    <a href="https://github.com/nullcontroller/ai-design-foundations">
+      このサイトのRepositoryを見る
+    </a>
+  </p>
+</Site>

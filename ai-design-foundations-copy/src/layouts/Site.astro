@@ -1,0 +1,233 @@
+---
+import "../styles/global.css";
+import "katex/dist/katex.min.css";
+import { assetUrl, url } from "../lib/site";
+import { navigation } from "../lib/navigation";
+interface Props {
+  title: string;
+  summary?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article" | "profile";
+  section?: string;
+  headings?: { depth: number; slug: string; text: string }[];
+  showSidebar?: boolean;
+}
+const {
+  title,
+  summary = "立林 裕太朗のキャリア、AI・システム設計の知識、実務事例と記事。",
+  canonical,
+  ogImage = "og/site.png",
+  ogType = "website",
+  section,
+  headings = [],
+  showSidebar = true,
+} = Astro.props;
+const documentTitle = `${title} | 立林 裕太朗`;
+const canonicalUrl = canonical?.startsWith(
+  "https://nullcontroller.github.io/ai-design-foundations/",
+)
+  ? canonical
+  : new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageUrl = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(assetUrl(ogImage), Astro.site).toString();
+const siteUrl = new URL(assetUrl(""), Astro.site).toString();
+const personId = `${siteUrl}#person`;
+const websiteId = `${siteUrl}#website`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: siteUrl,
+      name: "立林 裕太朗 | Applied AI / System Architecture",
+      inLanguage: "ja",
+      publisher: { "@id": personId },
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "立林 裕太朗",
+      url: new URL(url("career"), Astro.site).toString(),
+    },
+    {
+      "@type":
+        ogType === "article"
+          ? "Article"
+          : ogType === "profile"
+            ? "ProfilePage"
+            : "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: documentTitle,
+      description: summary,
+      inLanguage: "ja",
+      isPartOf: { "@id": websiteId },
+      author: { "@id": personId },
+      primaryImageOfPage: { "@type": "ImageObject", url: ogImageUrl },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={summary} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#17383b" />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={summary} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={documentTitle} />
+    <meta name="twitter:description" content={summary} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <title>{documentTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href={assetUrl("favicon.svg")} />
+    <link rel="icon" type="image/png" sizes="32x32" href={assetUrl("icons/favicon-32x32.png")} />
+    <link rel="apple-touch-icon" sizes="180x180" href={assetUrl("icons/apple-touch-icon.png")} />
+    <link rel="manifest" href={assetUrl("site.webmanifest")} />
+    <link rel="alternate" type="application/rss+xml" title="立林 裕太朗 | Articles" href={assetUrl("rss.xml")} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      本文へ移動
+    </a>
+    <header class="masthead">
+      <a class="brand" href={url()}>
+        立林 裕太朗<span>Applied AI / System Architecture</span>
+      </a>
+      <div class="header-links">
+        <a href={url("profile")}>プロフィール</a>
+        <a href={url("about")}>このサイトについて</a>
+        <a href={url("career")}>キャリア</a>
+        <a href={url("search")}>検索</a>
+        <button id="theme" type="button" aria-label="配色を切り替える">
+          配色切替
+        </button>
+      </div>
+    </header>
+    <div class:list={["shell", !showSidebar && "landing-shell"]}>
+      {showSidebar && <aside class="sidebar" aria-label="主要ナビゲーション">
+        <details open>
+          <summary>ナビゲーション</summary>
+          <nav>
+            {navigation.map((group, i) => (
+              <div class:list={["nav-group", i > 0 && "nav-divider"]}>
+                {group.map((item) => (
+                  <a
+                    href={url(item.path)}
+                    aria-current={section === item.path ? "page" : undefined}
+                  >
+                    <span>{item.title}</span>
+                    <small>{item.summary}</small>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </nav>
+        </details>
+      </aside>}
+      <main id="main" tabindex="-1">
+        <slot />
+      </main>
+      {showSidebar && <aside class="toc" aria-label="ページ内目次">
+        {headings.length > 0 && (
+          <>
+            <p>このページ</p>
+            <ol>
+              {headings
+                .filter((h) => h.depth <= 3)
+                .map((h) => (
+                  <li class:list={[h.depth === 3 && "sub"]}>
+                    <a href={"#" + h.slug}>{h.text}</a>
+                  </li>
+                ))}
+            </ol>
+          </>
+        )}
+      </aside>}
+    </div>
+    <footer class="site-footer">
+      立林 裕太朗 · Applied AI / System Architecture
+      <nav aria-label="フッター">
+        <a href={url("profile")}>プロフィール</a> ·{" "}
+        <a href={url("career")}>キャリア</a> ·{" "}
+        <a href={url("articles")}>記事</a> ·{" "}
+        <a href={url("about")}>このサイトについて</a>
+      </nav>
+    </footer>
+    <script>
+      const navigationViewport = matchMedia("(max-width: 760px)");
+      const syncNavigation = () =>
+        document
+          .querySelector(".sidebar details")
+          ?.toggleAttribute("open", !navigationViewport.matches);
+      syncNavigation();
+      navigationViewport.addEventListener("change", syncNavigation);
+      const theme = document.querySelector("#theme");
+      try {
+        const saved = localStorage.getItem("adf-theme");
+        if (saved) document.documentElement.dataset.theme = saved;
+      } catch {}
+      theme?.addEventListener("click", () => {
+        const dark =
+          document.documentElement.dataset.theme === "dark" ||
+          (!document.documentElement.dataset.theme &&
+            matchMedia("(prefers-color-scheme: dark)").matches);
+        const next = dark ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        try {
+          localStorage.setItem("adf-theme", next);
+        } catch {}
+        void drawDiagrams();
+      });
+      const figures = [
+        ...document.querySelectorAll<HTMLElement>("[data-mermaid]"),
+      ];
+      let generation = 0;
+      async function drawDiagrams() {
+        if (!figures.length) return;
+        const run = ++generation;
+        const { default: mermaid } = await import("mermaid");
+        if (run !== generation) return;
+        const dark =
+          document.documentElement.dataset.theme === "dark" ||
+          (!document.documentElement.dataset.theme &&
+            matchMedia("(prefers-color-scheme: dark)").matches);
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: "strict",
+          theme: dark ? "dark" : "default",
+        });
+        for (const [i, fig] of figures.entries()) {
+          try {
+            const { svg } = await mermaid.render(
+              "diagram-" + run + "-" + i,
+              fig.dataset.mermaid || "",
+            );
+            if (run !== generation) return;
+            fig.querySelector(".diagram-output")!.innerHTML = svg;
+            fig.querySelector("details")?.removeAttribute("open");
+            delete fig.dataset.error;
+          } catch {
+            fig.dataset.error = "true";
+            fig.querySelector("details")?.setAttribute("open", "");
+          }
+        }
+      }
+      void drawDiagrams();
+    </script>
+  </body>
+</html>

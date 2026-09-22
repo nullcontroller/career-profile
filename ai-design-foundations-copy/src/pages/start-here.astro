@@ -1,0 +1,32 @@
+---
+import Site from "../layouts/Site.astro";
+import { url } from "../lib/site";
+---
+
+<Site title="はじめに">
+  <h1>はじめに</h1>
+  <p class="lead">仕組みの理解から、設計・実践・事例へ。</p>
+  <ol class="reading-route">
+    <li>
+      <a href={url("ai-mathematics")}>AI数学論</a> — なぜそう振る舞うか
+    </li>
+    <li>
+      <a href={url("ai-design")}>AI設計</a> — その性質を前提にどう設計するか
+    </li>
+    <li>
+      <a href={url("practices")}>実践</a> —
+      業務・組織・開発へどう適用するか
+    </li>
+    <li>
+      <a href={url("cases")}>事例</a> — 実際にどう適用したか
+    </li>
+  </ol>
+  <p>
+    これは読み方の一例です。業務の設計課題がある場合は、AI
+    Designから直接読めます。
+  </p>
+  <p>
+    <a href={url("overview")}>全体目次で探す</a> ·{" "}
+    <a href={url("career")}>キャリア</a>
+  </p>
+</Site>

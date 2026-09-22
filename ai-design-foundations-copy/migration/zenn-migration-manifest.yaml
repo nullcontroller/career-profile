@@ -1,0 +1,1203 @@
+version: 1
+source_commit: 9c1ffe67773dfe91a55d0389606eedcabeb17e18
+expected:
+  article: 16
+  book: 3
+  chapter: 22
+entries:
+  - source_file: articles/00d48d3802ff49.md
+    source_type: article
+    original_slug: 00d48d3802ff49
+    original_url: https://zenn.dev/nullcontroller/articles/00d48d3802ff49
+    destination_file: src/content/practices/ai-education-principles.md
+    destination_slug: ai-education-principles
+    category: practices
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: e478e4c069838b8e1087f732e14891ec847d1bb084e68b58f5158a273f520b65
+    original_frontmatter:
+      title: 生成AI教育はなぜ難しいのか ― 変わらない原則と変わり続ける実践を分けて設計する
+      emoji: 🧭
+      type: idea
+      topics:
+        - 生成ai
+        - ai活用
+        - hitl
+        - aiガバナンス
+        - ai教育
+      published: true
+      published_at: 2026-08-14 07:35
+    original_published_at: 2026-08-14 07:35
+    original_publication_month: null
+    destination_body_sha256: 7e700f97604a25035769cffd8359ccc512e3f352a2744767d8798770b9561a74
+  - source_file: articles/15bcff341ff67b.md
+    source_type: article
+    original_slug: 15bcff341ff67b
+    original_url: https://zenn.dev/nullcontroller/articles/15bcff341ff67b
+    destination_file: src/content/practices/ai-adoption-and-effective-use.md
+    destination_slug: ai-adoption-and-effective-use
+    category: practices
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: e96e5117af4b2dd3a45e7c08ed3697c0f5b2fbe8570f957fc429eec7a3e41621
+    original_frontmatter:
+      title: AIは使われている。でも使いこなされていない
+      emoji: 💼
+      type: idea
+      topics:
+        - ai
+        - キャリア
+        - ソフトウェア設計
+        - プロダクト開発
+        - 生成ai
+      published: true
+      published_at: 2026-03-28 14:37
+    original_published_at: 2026-03-28 14:37
+    original_publication_month: null
+    destination_body_sha256: 02d54cd0e83f8f901a0d937213879d78f65546f9234886684ae8fdd972d7dfeb
+  - source_file: articles/1c9ec1d7e01206.md
+    source_type: article
+    original_slug: 1c9ec1d7e01206
+    original_url: https://zenn.dev/nullcontroller/articles/1c9ec1d7e01206
+    destination_file: src/content/knowledge-context/context-before-model-performance.md
+    destination_slug: context-before-model-performance
+    category: knowledge-context
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 8d31eaeca6d1cc947aaaffae46b3f19f91f5adf9f44ff64bbd9b18982fce3cd7
+    original_frontmatter:
+      title: AIを使い分ける基準は、モデル性能よりコンテキストではないか
+      emoji: 🔀
+      type: tech
+      topics:
+        - githubcopilot
+        - コンテキスト
+        - chatgpt
+        - 生成ai
+      published: true
+      published_at: 2026-08-22 10:28
+    original_published_at: 2026-08-22 10:28
+    original_publication_month: null
+    destination_body_sha256: f31d192e26d98b65e8bb77e92578d8e6e595a49769d0a746113490f26181e2d9
+  - source_file: articles/3a18f3f15b840a.md
+    source_type: article
+    original_slug: 3a18f3f15b840a
+    original_url: https://zenn.dev/nullcontroller/articles/3a18f3f15b840a
+    destination_file: src/content/practices/transferring-ai-practices.md
+    destination_slug: transferring-ai-practices
+    category: practices
+    migrated: true
+    image_count: 2
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 1b1891fe40cc4ca213d29790898a1a27b37ed8346bed8c1e474f63e4a04d5320
+    original_frontmatter:
+      title: 全員の業務が違うのに、AI活用事例をそのまま横展開できるのか
+      emoji: 🧱
+      type: idea
+      topics:
+        - 生成ai
+        - ai活用
+        - ai設計
+      published: true
+      published_at: 2026-08-27 22:58
+    original_published_at: 2026-08-27 22:58
+    original_publication_month: null
+    destination_body_sha256: e7044802b2b73640c0e52c7ae4a0be749690c4c30c63eef757f8e60c644afa72
+  - source_file: articles/4f6be09295656b.md
+    source_type: article
+    original_slug: 4f6be09295656b
+    original_url: https://zenn.dev/nullcontroller/articles/4f6be09295656b
+    destination_file: src/content/essays/ai-career-market.md
+    destination_slug: ai-career-market
+    category: essays
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: a5be66ad63ebb776d6429ad793a3effa19dcfafda60bc02227abbbb0108ba0ed
+    original_frontmatter:
+      title: 採用される側から見たAI人材の転職概況
+      emoji: 💼
+      type: idea
+      topics:
+        - キャリア
+        - 転職
+        - 生成ai
+        - aiエンジニア
+        - ai人材
+      published: true
+      published_at: 2026-08-20 08:25
+    original_published_at: 2026-08-20 08:25
+    original_publication_month: null
+    destination_body_sha256: a06bc29b518cf060195fcef1cdd5e9c5d49b42be5be12a622926c4e9485eb581
+  - source_file: articles/5b8a6a1c413e10.md
+    source_type: article
+    original_slug: 5b8a6a1c413e10
+    original_url: https://zenn.dev/nullcontroller/articles/5b8a6a1c413e10
+    destination_file: src/content/essays/model-competition-and-ecosystems.md
+    destination_slug: model-competition-and-ecosystems
+    category: essays
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 0fd6a00506daeb700a1c0f38b9cc669cb02d4feb5911465c887966a35c174cf5
+    original_frontmatter:
+      title: AIはどこへ進化しているのか — モデル競争の裏にある「構造」と「エコシステム」
+      emoji: 📝
+      type: idea
+      topics:
+        - chatgpt
+        - llm
+        - 生成ai
+        - claude
+        - gemini
+      published: true
+      published_at: 2026-03-08 22:05
+    original_published_at: 2026-03-08 22:05
+    original_publication_month: null
+    destination_body_sha256: abf29295c73343f389ea498a49df0d936574b2f2ac216112dc35eb60a737249e
+  - source_file: articles/5bbc6c7f86194f.md
+    source_type: article
+    original_slug: 5bbc6c7f86194f
+    original_url: https://zenn.dev/nullcontroller/articles/5bbc6c7f86194f
+    destination_file: src/content/essays/ai-roles-beyond-fde.md
+    destination_slug: ai-roles-beyond-fde
+    category: essays
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 014f1ce2671bcc1e164e64b1c393ce9bf8ed7a3c6e660eaa7068b894526c3e1c
+    original_frontmatter:
+      title: AI人材はFDEだけではない――これから進む専門職の細分化
+      emoji: 🧩
+      type: idea
+      topics:
+        - キャリア
+        - fde
+        - 生成ai
+        - aiエンジニア
+        - aiアーキテクチャ
+      published: true
+      published_at: 2026-08-17 07:26
+    original_published_at: 2026-08-17 07:26
+    original_publication_month: null
+    destination_body_sha256: 2de95f7442c261159590303d5931b15ac1f7ad5f8758ea1ee4d8c2bd3b1cb2da
+  - source_file: articles/6c399a260e0535.md
+    source_type: article
+    original_slug: 6c399a260e0535
+    original_url: https://zenn.dev/nullcontroller/articles/6c399a260e0535
+    destination_file: src/content/software-engineering/ai-design-assistance.md
+    destination_slug: ai-design-assistance
+    category: software-engineering
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 2feec8b7ba8d89c7c5ce8844a9e8a3f2bad7bcc73b2f6a9d8b9d1faec37f1177
+    original_frontmatter:
+      title: 設計支援AIは消えない。コード生成の次に残る領域
+      emoji: 🤖
+      type: idea
+      topics:
+        - ai
+        - 設計
+        - ソフトウェア設計
+        - 開発プロセス
+        - llm
+      published: true
+      published_at: 2026-04-09 00:14
+    original_published_at: 2026-04-09 00:14
+    original_publication_month: null
+    destination_body_sha256: 308ce89b940e32bad1af09327425e8d6545d009706f6b8824e15d9238fc3202f
+  - source_file: articles/7e06dd0e4e67d2.md
+    source_type: article
+    original_slug: 7e06dd0e4e67d2
+    original_url: https://zenn.dev/nullcontroller/articles/7e06dd0e4e67d2
+    destination_file: src/content/foundations/generation-and-acceptance.md
+    destination_slug: generation-and-acceptance
+    category: foundations
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 399d875845b5da6103d5a762aae52a278d1fc7d06433703da604193b27c4a3b5
+    original_frontmatter:
+      title: AIは自動化できる。しかし、その出力を確定値として扱ってはいけない
+      emoji: ⚠️
+      type: idea
+      topics:
+        - ai
+        - 業務改善
+        - 業務設計
+        - 生成ai
+        - hitl
+      published: true
+      published_at: 2026-08-07 19:26
+    original_published_at: 2026-08-07 19:26
+    original_publication_month: null
+    destination_body_sha256: b3a05b1ca5373d09aa57a7a699122722aa39b3f70318dea989bdf3af63df6737
+  - source_file: articles/7f7cb55c4ebcaa.md
+    source_type: article
+    original_slug: 7f7cb55c4ebcaa
+    original_url: https://zenn.dev/nullcontroller/articles/7f7cb55c4ebcaa
+    destination_file: src/content/evaluation-hitl/human-review-capability.md
+    destination_slug: human-review-capability
+    category: evaluation-hitl
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 53b16d77d7a20e4d356f112cb01f9425b1a184f5d56aa1d66368c9dfa2367c1c
+    original_frontmatter:
+      title: AI時代において「レビューできる人」が価値を持つ理由
+      emoji: 🤖
+      type: idea
+      topics:
+        - ai
+        - キャリア
+        - 品質管理
+        - 生成ai
+      published: true
+      published_at: 2026-03-28 14:46
+    original_published_at: 2026-03-28 14:46
+    original_publication_month: null
+    destination_body_sha256: 8786cfee7f358a9f822633424fa7f8ef84552554132e6c80e182920968809a2a
+  - source_file: articles/a1ac10c371e230.md
+    source_type: article
+    original_slug: a1ac10c371e230
+    original_url: https://zenn.dev/nullcontroller/articles/a1ac10c371e230
+    destination_file: src/content/foundations/llm-as-probabilistic-model.md
+    destination_slug: llm-as-probabilistic-model
+    category: foundations
+    migrated: true
+    image_count: 1
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: ef2ad485df26d98add3d6fb27d26a53d948ecfc3b6cff1b08e5188fdd3ffb34e
+    original_frontmatter:
+      title: LLMを確率モデルとして設計するという立場
+      emoji: 📐
+      type: idea
+      topics:
+        - ai
+        - 機械学習
+        - 数学
+        - 設計
+        - llm
+      published: true
+      published_at: 2026-02-28 18:58
+    original_published_at: 2026-02-28 18:58
+    original_publication_month: null
+    destination_body_sha256: 5b6391f518e068e759263d5d139e90ea9af0a80a1522db43a28eff4929863e00
+  - source_file: articles/c95d77150aa590.md
+    source_type: article
+    original_slug: c95d77150aa590
+    original_url: https://zenn.dev/nullcontroller/articles/c95d77150aa590
+    destination_file: src/content/architecture/agents-tools-and-workflows.md
+    destination_slug: agents-tools-and-workflows
+    category: architecture
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 0b6b0fcca0e5d70c5fbcd3fa049aff1672ed62d696761b5c3f2cb5f11b002c2e
+    original_frontmatter:
+      title: 「AIエージェントを0から作る時代」は本当に来るのか？
+      emoji: 🙄
+      type: tech
+      topics:
+        - ai
+        - mcp
+        - システム設計
+        - ワークフロー
+        - aiエージェント
+      published: true
+      published_at: 2026-05-07 22:47
+    original_published_at: 2026-05-07 22:47
+    original_publication_month: null
+    destination_body_sha256: 6489aa7af8d416f8ded3d3cc6e5376d4d637ad448aa3911420327e7dbc0363a7
+  - source_file: articles/dfd99f00db85d7.md
+    source_type: article
+    original_slug: dfd99f00db85d7
+    original_url: https://zenn.dev/nullcontroller/articles/dfd99f00db85d7
+    destination_file: src/content/essays/trust-in-ai-generated-content.md
+    destination_slug: trust-in-ai-generated-content
+    category: essays
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: d14f3ab5d5f8082f3ede2b49f7494d9fa188755cb3ad4914fabf5a77e9cb7d94
+    original_frontmatter:
+      title: AI生成コンテンツは、なぜ信頼されにくいのか
+      emoji: 🔍
+      type: tech
+      topics:
+        - レビュー
+        - 生成ai
+        - 情報発信
+        - ai活用
+        - 文書術
+      published: true
+      published_at: 2026-08-23 11:47
+    original_published_at: 2026-08-23 11:47
+    original_publication_month: null
+    destination_body_sha256: fcc0824b0800e4d28512b2a3f61f4e49f2cf9bf88fb1651554b9455bbaaf9aaf
+  - source_file: articles/ecf0bcfd611d7f.md
+    source_type: article
+    original_slug: ecf0bcfd611d7f
+    original_url: https://zenn.dev/nullcontroller/articles/ecf0bcfd611d7f
+    destination_file: src/content/software-engineering/code-generation-and-work-design.md
+    destination_slug: code-generation-and-work-design
+    category: software-engineering
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 0ecf68ef6fe260f8f1ceb998ede5f37ea35884c7a73da5a15fedba9e71957e90
+    original_frontmatter:
+      title: コード生成AIはなぜ業務を変えないのか — 設計支援として使うべき理由
+      emoji: 🧠
+      type: idea
+      topics:
+        - ai
+        - ソフトウェア設計
+        - dx
+        - 要件定義
+        - 生成ai
+      published: true
+      published_at: 2026-04-03 21:02
+    original_published_at: 2026-04-03 21:02
+    original_publication_month: null
+    destination_body_sha256: 56ea3668cc6391082e0cdbb5c7bfd206e9a86c443a90f0a566bff576eedddd91
+  - source_file: articles/f5c1a1276d2191.md
+    source_type: article
+    original_slug: f5c1a1276d2191
+    original_url: https://zenn.dev/nullcontroller/articles/f5c1a1276d2191
+    destination_file: src/content/cases/understanding-systems-as-capability.md
+    destination_slug: understanding-systems-as-capability
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: d8ffb65044417c37c536048c2ff326c2b03ab70ae18981ce9f631a691deec505
+    original_frontmatter:
+      title: 理解できないシステムは、コストである
+      emoji: 💬
+      type: idea
+      topics:
+        - ai
+        - 設計
+        - リファクタリング
+        - レガシー
+        - rag
+      published: true
+      published_at: 2026-04-12 19:01
+    original_published_at: 2026-04-12 19:01
+    original_publication_month: null
+    destination_body_sha256: 5c0edacc9736b04221f87bde0be14bdd0ca0279857bd02a808cb66840aba38e6
+  - source_file: articles/fccbf170ead145.md
+    source_type: article
+    original_slug: fccbf170ead145
+    original_url: https://zenn.dev/nullcontroller/articles/fccbf170ead145
+    destination_file: src/content/software-engineering/ai-driven-development.md
+    destination_slug: ai-driven-development
+    category: software-engineering
+    migrated: true
+    image_count: 0
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 9f89405b960c00415d778edea4e472a69e2715ea07d35a2f9d140c7dfd7a6434
+    original_frontmatter:
+      title: 私が考えるAI駆動開発 ― AI・人間・成果物をどうつなぐか
+      emoji: 🔗
+      type: idea
+      topics:
+        - githubcopilot
+        - 生成ai
+        - ai駆動開発
+        - hitl
+        - aiガバナンス
+      published: true
+      published_at: 2026-08-15 08:42
+    original_published_at: 2026-08-15 08:42
+    original_publication_month: null
+    destination_body_sha256: 31f0e77099003a32b18546c2856784fb6ce3102ee2fe9de9a5e53d27bbc9ec56
+  - source_file: books/76ed12dcc7e5d7/config.yaml
+    source_type: book
+    original_slug: 76ed12dcc7e5d7
+    original_url: https://zenn.dev/nullcontroller/books/76ed12dcc7e5d7
+    destination_file: src/content/foundations/ai-business-design.md
+    destination_slug: ai-business-design
+    category: foundations
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: b3f1cf8c0854d41349bfb98459e8bf4312c3b84ff0603e503988b69a021cb192
+    original_frontmatter:
+      title: 『生成AIを業務へ組み込む設計原則 ― AI・人間・既存システムの責任をどう分けるか』
+      summary: |-
+        生成AIは、文章作成、情報検索、判断支援、コード生成、既存システムの操作まで、さまざまな作業を自動化できるようになりました。
+
+        しかし、AIが実行できることと、業務として任せられることは同じではありません。
+
+        AIを本番業務へ組み込むには、次のような設計が必要です。
+
+        * AIにどこまで任せるのか
+        * どの条件で人間へ処理を戻すのか
+        * 誰が結果を確認し、承認するのか
+        * AIの品質をどう評価するのか
+        * 既存システムとどう接続するのか
+        * 問題が起きたとき、誰が責任を持つのか
+
+        これらは、モデルの性能やプロンプトの工夫だけでは解決できません。
+
+        本書では、生成AIの操作方法ではなく、
+
+        > **AI・人間・既存システムを、一つの業務システムとしてどう設計するか**
+
+        を考えます。
+
+        第1章では、AIに作業を任せた後も、判断・承認・記録・責任を途切れさせないための設計を扱います。
+
+        第2章では、AIによる生成速度ではなく、確認・修正・レビュー・合意形成まで含めた業務全体で、導入効果を評価する必要性を扱います。
+
+        今後は、Human in the Loop、責任分界、回答しない条件、RAG、AI評価、コンテキスト設計、複数AIの役割分担など、私自身が生成AIを実務へ適用する中で考えてきたテーマを追加していく予定です。
+
+        特定の製品やモデルの操作方法ではなく、技術が変化しても比較的残り続ける設計原則を中心に整理します。
+
+        本書は執筆中です。原則として週1章のペースで更新します。
+
+        AIを「とりあえず使う」段階から、
+
+        > **AIを安全かつ継続的に業務へ組み込める状態を設計する段階へ。**
+
+        そのために必要な設計を、一つずつ考えていきます。
+      topics:
+        - システム設計
+        - 生成ai
+        - aiエージェント
+        - hitl
+        - aiガバナンス
+      published: true
+      price: 0
+      toc_depth: 2
+      chapters:
+        - 412d8b
+        - 62ecee
+        - 10802f
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 019589c625ba671eee6cf3492b7073a1270b0e3fcecb2365f95b3a1efecf056b
+  - source_file: books/76ed12dcc7e5d7/412d8b.md
+    source_type: chapter
+    original_slug: 412d8b
+    original_url: https://zenn.dev/nullcontroller/books/76ed12dcc7e5d7/view/412d8b
+    destination_file: src/content/foundations/ai-business-design/delegation-and-responsibility.md
+    destination_slug: ai-business-design/delegation-and-responsibility
+    category: foundations
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 58fc0c31e2a3a5ac6c28cde57f7e9eb122535c59291f2277ff42315ec82764c7
+    original_frontmatter:
+      title: 第1章　AIに仕事を任せても、責任は消えない
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 11a3d0ae2973eff8acd95e53151266854e3f1eb00d0f175b20f9c64efba21842
+  - source_file: books/76ed12dcc7e5d7/62ecee.md
+    source_type: chapter
+    original_slug: 62ecee
+    original_url: https://zenn.dev/nullcontroller/books/76ed12dcc7e5d7/view/62ecee
+    destination_file: src/content/foundations/ai-business-design/evaluating-business-efficiency.md
+    destination_slug: ai-business-design/evaluating-business-efficiency
+    category: foundations
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: b3c9dca1703bd8af3cf502a5bdec7e2050e4d3b94f55147efda4975512088b32
+    original_frontmatter:
+      title: 第2章　AI導入は効率化とは限らない
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: c17a42a29f10f5953bb2dece36dd94ca99c2040463f2fd1b63d82af69a6f2946
+  - source_file: books/76ed12dcc7e5d7/10802f.md
+    source_type: chapter
+    original_slug: 10802f
+    original_url: https://zenn.dev/nullcontroller/books/76ed12dcc7e5d7/view/10802f
+    destination_file: src/content/foundations/ai-business-design/asking-versus-delegating.md
+    destination_slug: ai-business-design/asking-versus-delegating
+    category: foundations
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 194fcbed9fe08329ae923ac0e800a55b5e79d8a742b0e53fa6b284bc2d772776
+    original_frontmatter:
+      title: 第3章　AIに聞くことと、AIに仕事を任せることは違う
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: acdd41ae134398b238838892cf16233d1be97af1ba3ea0354bc079d45484702d
+  - source_file: books/b9a9feaefb4001/config.yaml
+    source_type: book
+    original_slug: b9a9feaefb4001
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001
+    destination_file: src/content/cases/three-ai-maintenance.md
+    destination_slug: three-ai-maintenance
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: a34f6934f5ded22ab5f5f923860c86199bd6f6065994b03eb047c3bcd769c62d
+    original_frontmatter:
+      title: 3つのAIをオーケストレーションしたレガシー保守
+      summary: |-
+        本書では、CRA対応に伴うセキュリティ要件の強化を契機として、レガシーシステムの暗号処理と異常系を見直した事例を扱う。
+
+        既存システムでは、暗号化したパスワードをレジストリへ保存し、利用時に復号していた。暗号方式をCNG APIおよびDPAPIへ変更したことで、暗号APIのエラー処理が生じた。また、レジストリ値の破損、読出し失敗といった異常系も整理する必要があり、完全化保守を行う事になった。
+
+        そこで、GitHub Copilot、GPT、Microsoft 365 Copilotを役割分担させた。
+
+        GPT：制約条件と要件案の整理、PlantUML作成
+        GitHub Copilot：コード調査、実現方法の具体化、コード修正
+        Microsoft 365 Copilot：検討結果のExcel仕様書化
+
+        時には、PlantUMLで動的構造を補完するなど、AIの特性を生かした補完を用いた。
+        サブ審議で承認を得た後、関数単位で実装と単体テストを進めた。
+
+        その結果、開発工数の兼ね合いから従来委託していた外部委託を不要とし、
+        想定開発期間も7割短縮できた。
+
+        本書で扱うのは、AIへの丸投げではない。人間が前提と判断基準を定め、AIの出力をリスクに応じて利用しながら、要件検討から仕様化、実装、承認までをつなぐ方法である。
+      topics:
+        - ソフトウェア設計
+        - 生成ai
+        - オーケストレーション
+        - hitl
+        - 保守開発
+      published: true
+      price: 0
+      toc_depth: 2
+      chapters:
+        - c90225
+        - e68b04
+        - "49e444"
+        - 40f445
+        - b2b1c6
+        - 147fb6
+        - c8af5c
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 70882b641851f4a9ce8cb5e4f24d67b8d386ee541b7dfabc543f3c13b43852e9
+  - source_file: books/b9a9feaefb4001/c90225.md
+    source_type: chapter
+    original_slug: c90225
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/c90225
+    destination_file: src/content/cases/three-ai-maintenance/cryptography-and-failure-modes.md
+    destination_slug: three-ai-maintenance/cryptography-and-failure-modes
+    category: cases
+    migrated: true
+    image_count: 4
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 578ac84c987e37c02192af0d2940a03a7ddf51ba71406724a569bdb19f5bcdcb
+    original_frontmatter:
+      title: 第1章　暗号方式の変更によって顕在化した異常系
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 542337a0a8fdb5bbfbc4920612ebda2eb7455e0305d5811ba5008a4358fb375c
+  - source_file: books/b9a9feaefb4001/e68b04.md
+    source_type: chapter
+    original_slug: e68b04
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/e68b04
+    destination_file: src/content/cases/three-ai-maintenance/structuring-failure-handling.md
+    destination_slug: three-ai-maintenance/structuring-failure-handling
+    category: cases
+    migrated: true
+    image_count: 1
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: cb49009e1e5139058dfa05449317273a1ff4ab7b295b0c44b0d13207bdcf0e97
+    original_frontmatter:
+      title: 第2章　異常系の構造を整理し、設計方針を確定する
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 9d9c85a2e86422a20d78c9ffd6de3f06debfd08318d3bd7aa7b44cade85361a0
+  - source_file: books/b9a9feaefb4001/49e444.md
+    source_type: chapter
+    original_slug: "49e444"
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/49e444
+    destination_file: src/content/cases/three-ai-maintenance/implementation-design.md
+    destination_slug: three-ai-maintenance/implementation-design
+    category: cases
+    migrated: true
+    image_count: 2
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 40b7e0291a9fe1f4e819924a1e7c4f44cdfe37b9ac33dd523a3f0eac56c1d103
+    original_frontmatter:
+      title: 第3章　GitHub Copilotと人間で実現方法を具体化する
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 7408d62d049caabff87ad1314f1f80a6535d0f49c6ba58deec05308b623a08da
+  - source_file: books/b9a9feaefb4001/40f445.md
+    source_type: chapter
+    original_slug: 40f445
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/40f445
+    destination_file: src/content/cases/three-ai-maintenance/reviewable-specifications.md
+    destination_slug: three-ai-maintenance/reviewable-specifications
+    category: cases
+    migrated: true
+    image_count: 1
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 8ad269f16bda5bd7bcdd9d259dfc6676faff45084b02fd6853a4fde5dea9a646
+    original_frontmatter:
+      title: 第4章　Microsoft 365 Copilotでレビュー可能な仕様書へ変換する
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: e8025125732471f5d7a343901ec6eeb817cc966e73b79584198d31b5e70b9e74
+  - source_file: books/b9a9feaefb4001/b2b1c6.md
+    source_type: chapter
+    original_slug: b2b1c6
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/b2b1c6
+    destination_file: src/content/cases/three-ai-maintenance/sharing-current-specifications.md
+    destination_slug: three-ai-maintenance/sharing-current-specifications
+    category: cases
+    migrated: true
+    image_count: 1
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: cd7c81c0bdcd43dc0806012303dc3e31d2d6fdf98665936cc10d07d0519de6b6
+    original_frontmatter:
+      title: 第5章　AI間で現在の仕様を受け渡し、Excel仕様書を修正する
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 57bb8f193756f1ae9ea1730cc5d2f29f76593762bd51b3c6474b16ac3b44a5ac
+  - source_file: books/b9a9feaefb4001/147fb6.md
+    source_type: chapter
+    original_slug: 147fb6
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/147fb6
+    destination_file: src/content/cases/three-ai-maintenance/code-generation-and-unit-tests.md
+    destination_slug: three-ai-maintenance/code-generation-and-unit-tests
+    category: cases
+    migrated: true
+    image_count: 1
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 84f496108d1fbda2a2b0654d1aa8df423d1a50c5b48b9d70da9a4e755972c926
+    original_frontmatter:
+      title: 第6章　全体像を共有しながら、コード生成と単体テストを進める
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: a0f1a935191eb40248ea567c7e946e41724d55e38cb985d7912436b66f353247
+  - source_file: books/b9a9feaefb4001/c8af5c.md
+    source_type: chapter
+    original_slug: c8af5c
+    original_url: https://zenn.dev/nullcontroller/books/b9a9feaefb4001/view/c8af5c
+    destination_file: src/content/cases/three-ai-maintenance/results-and-reflections.md
+    destination_slug: three-ai-maintenance/results-and-reflections
+    category: cases
+    migrated: true
+    image_count: 1
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 7ce7563baa52ba19bdcf7bfc7762280154cfeb76a35eae579e79385bd08e45b1
+    original_frontmatter:
+      title: 第7章　成果と考察
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-08
+    destination_body_sha256: 0d1ef4718ba775c3c761eaac0562d43c26496bb817a32d91644aca63e56632be
+  - source_file: books/db491398459cbc/config.yaml
+    source_type: book
+    original_slug: db491398459cbc
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc
+    destination_file: src/content/cases/system-understanding.md
+    destination_slug: system-understanding
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: d7322965329806430638430a1bb13246073cc6e9c049ad6077d9b60be8937d50
+    original_frontmatter:
+      title: レガシーシステムを「理解可能な状態」にする設計手法
+      summary: |-
+        レガシーシステムのモダナイゼーションでは、新しい技術へ置き換える前に、まず現在のシステムを理解できる状態にすることが重要です。
+
+        しかし、長期間運用されてきたシステムでは、仕様書が残っていない、当時の担当者がいない、設計意図が分からない、実装されたソースコードだけが残っている、といった状況も珍しくありません。
+
+        このようなシステムを変更するには、まずソースコードから現在の仕様や構造を読み解き、人間が理解・確認できる形へ再構築する必要があります。
+
+        本書では、そのための一連の手法を、
+
+        レガシーコード
+        → 仕様復元
+        → 構造化・可視化
+        → 知識として再利用
+        → RAG / QAシステムへ展開
+
+        という流れで整理します。
+
+        単にAIへコードを読ませて説明させるのではありません。
+
+        ソースコードから何を抽出するのか、どのような形式で構造を表現するのか、どこを人間が確認するのか、そして復元した知識をその後の調査や保守へどう再利用するのか。
+
+        「コードしか残っていないシステム」を「人間とAIが利用できる知識」に変換する設計手法を、実務で利用できる形でまとめています。
+
+        対象読者
+
+        ・レガシーシステムの調査・保守を担当するエンジニア
+        ・モダナイゼーションを進める設計者・アーキテクト
+        ・仕様書が不足したシステムの構造を復元したい人
+        ・生成AIやRAGをソフトウェア保守へ活用したい技術者
+
+        本書の目的は、AIにレガシーシステムを理解させることではありません。
+
+        人間がシステムを理解し、判断できる状態を再構築すること。
+
+        そのためにAIをどこで使い、どこを人間が確認するべきかを含めて整理します。
+      topics:
+        - ai
+        - 設計
+        - リファクタリング
+        - レガシー
+        - rag
+      published: true
+      price: 0
+      toc_depth: 1
+      chapters:
+        - "175772"
+        - 4f03c8
+        - 147cdb
+        - a02dc3
+        - cf471a
+        - 720ca8
+        - 7da717
+        - cd6a40
+        - 1d444f
+        - 28501b
+        - 6dcbe1
+        - a490bc
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: bc64efa33744576849e9bca41227c79a73492cb8fbd079bf22fd1d8439cfb2b6
+  - source_file: books/db491398459cbc/175772.md
+    source_type: chapter
+    original_slug: "175772"
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/175772
+    destination_file: src/content/cases/system-understanding/system-understanding-problems.md
+    destination_slug: system-understanding/system-understanding-problems
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 31e89ac29e8bc97fa2cf90665a5f7cd6ac7a694e57f4cc9886e4e5ccde3595c4
+    original_frontmatter:
+      title: 第1章 レガシーシステムの問題検出と「理解可能な状態」にする設計の必要性
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: aaf12c31a23a71980e2dffb17e88e5ab12e1ff7b3ea8ada1941be92b4a78c63b
+  - source_file: books/db491398459cbc/4f03c8.md
+    source_type: chapter
+    original_slug: 4f03c8
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/4f03c8
+    destination_file: src/content/cases/system-understanding/qa-case-study.md
+    destination_slug: system-understanding/qa-case-study
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 3298a347882060c8564f7b4c1798e41b37ab09b9829fb5d373fa793bba8a1fbf
+    original_frontmatter:
+      title: 第2章 実践事例 ― QAチャットによる構造理解と意思決定の高速化
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: fb5d7bfac9056c6e1e11b414e7f65ba5a01d08f5ec06a894cf9c5d9629486d23
+  - source_file: books/db491398459cbc/147cdb.md
+    source_type: chapter
+    original_slug: 147cdb
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/147cdb
+    destination_file: src/content/cases/system-understanding/project-structure.md
+    destination_slug: system-understanding/project-structure
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: a6c5e80aab6906e2d664b5996f006d328aa546b0e1fe5fe296227995c7d3f9fa
+    original_frontmatter:
+      title: 第3章 プロジェクト構造の整理 ― 理解のための地図を作る
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 99e815d1684861847286fa2e4b768760713858f437d816208d2d4726dd6ce11f
+  - source_file: books/db491398459cbc/a02dc3.md
+    source_type: chapter
+    original_slug: a02dc3
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/a02dc3
+    destination_file: src/content/cases/system-understanding/recovering-code-structure.md
+    destination_slug: system-understanding/recovering-code-structure
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: d49481a5940197dcd30751fc637a770fc20a0de8fd8e2a72d429369fdd7fda4f
+    original_frontmatter:
+      title: 第4章 ソースコードから構造を復元する ― 役割と関係の特定
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 5c25532f8a0c16c625d1f7184e798d24b8392d3d7170a44ac97b1e43f449cfe8
+  - source_file: books/db491398459cbc/cf471a.md
+    source_type: chapter
+    original_slug: cf471a
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/cf471a
+    destination_file: src/content/cases/system-understanding/visualizing-process-flows.md
+    destination_slug: system-understanding/visualizing-process-flows
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 4447213ee203979e9c5937c41dafc39274cad5f6edb4cf513f90175fb5be8b7a
+    original_frontmatter:
+      title: 第5章 処理フローの可視化 ― PlantUMLによる動きの再構築
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: f587033a225faa0c42343094ced84ef28d17d552ce8557f46aad1ad8b496248d
+  - source_file: books/db491398459cbc/720ca8.md
+    source_type: chapter
+    original_slug: 720ca8
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/720ca8
+    destination_file: src/content/cases/system-understanding/human-and-ai-knowledge.md
+    destination_slug: system-understanding/human-and-ai-knowledge
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 06b687e752c0c33c5b4b99f3da4cadcdc1877f10a4145becd594b4a2361078f8
+    original_frontmatter:
+      title: 第6章 人間用とAI用の分離設計 ― PlantUMLとMarkdownの役割分担
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 296fa97b41a7ab1b8eb371d33a90235f07564f26f991b66d11bdf41a38eeaef0
+  - source_file: books/db491398459cbc/7da717.md
+    source_type: chapter
+    original_slug: 7da717
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/7da717
+    destination_file: src/content/cases/system-understanding/connecting-ui-and-internals.md
+    destination_slug: system-understanding/connecting-ui-and-internals
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: d8b47e63b47effe0a4c462737ebb7b099a94df0d3839ccdeab2f5e2ec1481309
+    original_frontmatter:
+      title: 第7章 UIと内部構造の接続 ― 利用可能な状態への変換
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 3693938609e57e139be396f14961188f412baa8bb3fd5975cb9d38aa5235aa4a
+  - source_file: books/db491398459cbc/cd6a40.md
+    source_type: chapter
+    original_slug: cd6a40
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/cd6a40
+    destination_file: src/content/cases/system-understanding/rag-implementation.md
+    destination_slug: system-understanding/rag-implementation
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: fe177dde735b2985f853fe0a06785423f6992e984231b2ec6628f06052d4c83a
+    original_frontmatter:
+      title: 第8章 RAGの再利用設計 ― QAチャットとして成立させる実装
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 6e87262b0fcee1fd78cd83847f0df78080d37fe4d96c0a8bd76156c0c0d81392
+  - source_file: books/db491398459cbc/1d444f.md
+    source_type: chapter
+    original_slug: 1d444f
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/1d444f
+    destination_file: src/content/cases/system-understanding/qa-evaluation.md
+    destination_slug: system-understanding/qa-evaluation
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 9079b2fb21a672149a8df25581f82f10c836b6f6933539b68619b10fee607966
+    original_frontmatter:
+      title: 第9章 QAシステムの評価設計 ― 信頼可能な品質の定義
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 7fb5514947afe35f0ec18ab243f845394516c28c0cf6653eaaf3fc5c41156cb5
+  - source_file: books/db491398459cbc/28501b.md
+    source_type: chapter
+    original_slug: 28501b
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/28501b
+    destination_file: src/content/cases/system-understanding/rag-improvement.md
+    destination_slug: system-understanding/rag-improvement
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 3767c7243d998bc39660bfdaea7edfedba8c87bbf5de11afbad834da3adb7ef3
+    original_frontmatter:
+      title: 第10章 RAGの改善設計 ― 評価結果に基づく品質向上
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 1075b7187819a72c234ef9f6b5997036ca5dcc7fb9a56326700a3190761243b5
+  - source_file: books/db491398459cbc/6dcbe1.md
+    source_type: chapter
+    original_slug: 6dcbe1
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/6dcbe1
+    destination_file: src/content/cases/system-understanding/qa-operations.md
+    destination_slug: system-understanding/qa-operations
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 8c7062f574d22a447d3488362218583a82d9762ce174402504e33123b9a7e7dd
+    original_frontmatter:
+      title: 第11章 QAシステムの運用設計 ― 品質を維持するための更新プロセス
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: a86e05d6bfdde5ec97fa4156028b43a5bec6c0535c430050be9f2b8042f6db3a
+  - source_file: books/db491398459cbc/a490bc.md
+    source_type: chapter
+    original_slug: a490bc
+    original_url: https://zenn.dev/nullcontroller/books/db491398459cbc/view/a490bc
+    destination_file: src/content/cases/system-understanding/qa-case-study-revisited.md
+    destination_slug: system-understanding/qa-case-study-revisited
+    category: cases
+    migrated: true
+    image_count: 0
+    notes:
+      - Exact publication date absent in source; not inferred from Git dates.
+      - Original free:false preserved. Parent book price:0 and published:true;
+        migrated per owner request.
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+    source_sha256: 139291e7a7e19c7d6fb33a4763c1bb5c3a0bec4241d15523573a0f41821a5175
+    original_frontmatter:
+      title: 第12章 実践事例 ― QAチャットによる構造理解と意思決定の高速化
+      free: false
+    original_published_at: null
+    original_publication_month: 2026-03
+    destination_body_sha256: 1f0726a9d0aeb7764e3add022fc7fccf7f99a16efde3e63dce83ed16d44e6824
+assets:
+  - source_file: books/76ed12dcc7e5d7/cover.jpg
+    destination: /assets/imported/zenn/76ed12dcc7e5d7-cover.jpg
+    downloaded: true
+    sha256: 6cf012158762a1986d33b9484676ab40329a47acc52d591b6c5e773a5fb91db0
+  - source_file: books/b9a9feaefb4001/cover.jpg
+    destination: /assets/imported/zenn/b9a9feaefb4001-cover.jpg
+    downloaded: true
+    sha256: 20745ad6c145adaeb11ebe84c0bc777fa7aaadf4c84080e47657c537b78639fe
+  - source_file: books/db491398459cbc/cover.jpg
+    destination: /assets/imported/zenn/db491398459cbc-cover.jpg
+    downloaded: true
+    sha256: 248121baf3a0141198b65d841a2412a43c96a183d7657fc0d6508d30b2a7c722
+  - original_url: https://static.zenn.studio/user-upload/3d78c494f1fe-20260827.jpg
+    destination: /assets/imported/zenn/f24cf28353b8f906.jpg
+    downloaded: true
+    sha256: 4542ccabbdf8f91a8e44037dbf7dba02e49670c5db5263217b1a2e13482cb394
+  - original_url: https://static.zenn.studio/user-upload/9863dfa487d2-20260827.jpg
+    destination: /assets/imported/zenn/63821f246356c10a.jpg
+    downloaded: true
+    sha256: f041a260d07e9b8eee5a2f7febebd4b028baa87abc3cd97be6241135e9bde769
+  - original_url: https://storage.googleapis.com/zenn-user-upload/93e299c4c1ac-20260404.png
+    destination: /assets/imported/zenn/30150315b05f79f0.png
+    downloaded: true
+    sha256: 1a7f4f04448d984010d46a8032c501c00bb5b469df9cb439bb9069b06a5d63a2
+  - original_url: https://static.zenn.studio/user-upload/fc148deb6ec6-20260807.png
+    destination: /assets/imported/zenn/9264e8adcc142981.png
+    downloaded: true
+    sha256: 14c93e0373a90e07d8806a5ef9a8861c5619a5cdc5eadfbcf4ed39aa27039e5e
+  - original_url: https://static.zenn.studio/user-upload/04a328965ccf-20260807.png
+    destination: /assets/imported/zenn/6f1acc44fe749a1a.png
+    downloaded: true
+    sha256: af6588892cc7855db2f0bcb1a7356832f6d52c98c46fdd7b7480b409d3033c6d
+  - original_url: https://static.zenn.studio/user-upload/f34b63fac31c-20260807.png
+    destination: /assets/imported/zenn/44a88545ca21be3a.png
+    downloaded: true
+    sha256: 1ff5e8167c7783e45b568491b6ae6f59731d4111f9a9cf6b18f986f364d31e38
+  - original_url: https://static.zenn.studio/user-upload/7be6fade2583-20260807.png
+    destination: /assets/imported/zenn/b326da60f854a97a.png
+    downloaded: true
+    sha256: 2a8cb2487c49057cb2af29ebe7e238a25a3609962146b0f2471af63675039f0d
+  - original_url: https://static.zenn.studio/user-upload/87ca896ece3f-20260807.png
+    destination: /assets/imported/zenn/2728ea73e309755b.png
+    downloaded: true
+    sha256: 714ef5fca8bfcbcde0d84beaccf64ff8739cdae42c3ea5eb7155bf675f39e7ee
+  - original_url: https://static.zenn.studio/user-upload/3d9e67fbe847-20260807.png
+    destination: /assets/imported/zenn/d876e5e906671969.png
+    downloaded: true
+    sha256: f3aa409adf2c5352d7407c73ac49024314e7d72fbdb7048e82737ce0e08a6214
+  - original_url: https://static.zenn.studio/user-upload/d73f9d3e0a02-20260807.png
+    destination: /assets/imported/zenn/07d394723ec449d0.png
+    downloaded: true
+    sha256: cacf8ea105a259bd15644b69ac5f9a41ae4f984e6521fe4b7d766959d1411bd3
+  - original_url: https://static.zenn.studio/user-upload/cfba9dba3f65-20260807.png
+    destination: /assets/imported/zenn/75f482ba78c7e207.png
+    downloaded: true
+    sha256: cdab3184072febc29913751dcff9d734a214057b7b44655edb903a1225ccd71b
+  - original_url: https://static.zenn.studio/user-upload/1b7ebbf508c5-20260807.png
+    destination: /assets/imported/zenn/e806d1825a4f8ef7.png
+    downloaded: true
+    sha256: 1f036db43067e453b3a6045e4e5ab48165fcef23170da1f807c0fe3ea05be68d
+  - original_url: https://static.zenn.studio/user-upload/2f87b89dc0fc-20260807.png
+    destination: /assets/imported/zenn/31c01dca387ca115.png
+    downloaded: true
+    sha256: 3d4837f6a7445de2f64fdc7141f30f26eb44df39d785776c8b17d7664fb9699a
+  - original_url: https://static.zenn.studio/user-upload/c8bd299ee13f-20260807.png
+    destination: /assets/imported/zenn/50d50e92bdbef060.png
+    downloaded: true
+    sha256: 4527a92f09ae43c02f97e302c2cece0cc3e2f81114e35465b04fb43ed9a3018a

@@ -1,0 +1,39 @@
+---
+import type { Entry } from "../lib/navigation";
+import PublicationLink from "./PublicationLink.astro";
+import ContentLink from "./ContentLink.astro";
+import { url, base } from "../lib/site";
+interface Props {
+  entry: Entry;
+  all: Entry[];
+}
+const { entry, all } = Astro.props;
+const chapters = all
+  .filter((e) => e.data.series === entry.data.series && (e.data.order ?? 0) > 0)
+  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+
+<article class="book-list-entry" data-series-index={entry.id}>
+  {entry.data.cover && (
+    <a href={url(entry.id)} tabindex="-1" aria-hidden="true">
+      <img src={base + entry.data.cover} alt="" width="120" loading="lazy" />
+    </a>
+  )}
+  <div>
+    <PublicationLink entry={entry} heading="h2" />
+    <p class="meta">全{chapters.length}章</p>
+    <p>
+      <a href={url(entry.id)}>概要・全体構成から読む →</a>
+    </p>
+    <details>
+      <summary>全{chapters.length}章の目次を見る</summary>
+      <ol>
+        {chapters.map((e) => (
+          <li>
+            <ContentLink entry={e} heading="p" />
+          </li>
+        ))}
+      </ol>
+    </details>
+  </div>
+</article>

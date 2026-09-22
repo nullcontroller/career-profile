@@ -1,0 +1,14 @@
+---
+import Site from "../layouts/Site.astro";
+import { url } from "../lib/site";
+---
+
+<Site
+  title="ページが見つかりません"
+  canonical="https://nullcontroller.github.io/ai-design-foundations/404.html"
+>
+  <h1>ページが見つかりません</h1>
+  <p>
+    <a href={url()}>Homeへ戻る</a>
+  </p>
+</Site>

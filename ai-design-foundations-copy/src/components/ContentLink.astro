@@ -1,0 +1,24 @@
+---
+import { contentCategory } from "../lib/navigation";
+import type { CollectionEntry } from "astro:content";
+import { url } from "../lib/site";
+interface Props {
+  entry: CollectionEntry<"pages">;
+  heading?: "h2" | "h3" | "p";
+  current?: boolean;
+}
+const { entry, heading: Heading = "h2", current = false } = Astro.props;
+const d = entry.data;
+---
+
+<div class="content-entry" data-content-id={entry.id}>
+  <p class="meta">
+    {contentCategory(entry)} · {d.status}
+  </p>
+  <Heading class="content-title">
+    <a href={url(entry.id)} aria-current={current ? "page" : undefined}>
+      {d.title}
+    </a>
+  </Heading>
+  <p class="content-summary">{d.summary}</p>
+</div>

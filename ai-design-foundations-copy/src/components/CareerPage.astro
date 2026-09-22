@@ -1,0 +1,44 @@
+---
+import { getEntry, render } from "astro:content";
+import Site from "../layouts/Site.astro";
+import MarkdownBody from "./MarkdownBody.astro";
+import { url } from "../lib/site";
+interface Props {
+  id: "overview" | "profile";
+}
+const entry = await getEntry("career", Astro.props.id);
+if (!entry) throw new Error("Career content missing");
+const { headings } = await render(entry);
+const d = entry.data;
+---
+
+<Site
+  title={Astro.props.id === "profile" ? "詳細職務経歴・希望条件" : "キャリア"}
+  summary={d.summary}
+  ogImage="og/career.png"
+  ogType="profile"
+  section={Astro.props.id === "profile" ? "career/profile" : "career"}
+  headings={headings}
+>
+  <nav class="breadcrumb">
+    <a href={url()}>ホーム</a> / <a href={url("career")}>キャリア</a>
+  </nav>
+  <article data-pagefind-body>
+    <h1 data-pagefind-meta="title">{Astro.props.id === "profile" ? "詳細職務経歴・希望条件" : "キャリア"}</h1>
+    <p class="lead" data-pagefind-meta="summary">
+      {d.summary}
+    </p>
+    <p class="meta">
+      <span data-pagefind-meta="category">キャリア</span> ·{" "}
+      <span data-pagefind-meta="status">{d.status}</span>
+    </p>
+    <nav class="topic-navigation" aria-label="キャリア情報">
+      <a href={url("career")}>キャリア概要</a>
+      <a href={url("career/profile")}>詳しい職務経歴・希望条件を見る</a>
+      <a href={url("cases")}>実務事例を読む</a>
+    </nav>
+    <div class="prose">
+      <MarkdownBody html={entry.rendered?.html || ""} />
+    </div>
+  </article>
+</Site>

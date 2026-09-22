@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../../layouts/Site.astro";
+import ContentIndex from "../../components/ContentIndex.astro";
+import RelatedPublications from "../../components/RelatedPublications.astro";
+import { designTopics, relatedPublications } from "../../lib/navigation";
+import { publicEntry, url } from "../../lib/site";
+export function getStaticPaths() {
+  return designTopics.map(([topic, title, summary]) => ({
+    params: { topic },
+    props: { title, summary },
+  }));
+}
+const { title, summary } = Astro.props;
+const all = await getCollection("pages", publicEntry);
+---
+
+<Site
+  title={title}
+  section="ai-design"
+  summary={summary}
+  ogImage="og/ai-design-foundations.png"
+>
+  <nav class="breadcrumb">
+    <a href={url("ai-design")}>AI Design</a> / {title}
+  </nav>
+  <h1>{title}</h1>
+  <p class="lead">{summary}</p>
+  <ContentIndex
+    entries={all.filter(
+      (e) =>
+        e.data.layer === "ai-design" &&
+        e.data.design_topic === Astro.params.topic,
+    )}
+  />
+  <RelatedPublications entries={relatedPublications(all, Astro.params.topic)} />
+</Site>

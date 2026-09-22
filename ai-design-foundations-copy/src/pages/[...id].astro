@@ -1,0 +1,193 @@
+---
+import { getCollection, render } from "astro:content";
+import Site from "../layouts/Site.astro";
+import RelatedPublications from "../components/RelatedPublications.astro";
+import {
+  layerPath,
+  contentCategory,
+  relatedPublications,
+  topicLabel,
+  designTopics,
+  topicPublications,
+  publicationType,
+} from "../lib/navigation";
+import ContentLink from "../components/ContentLink.astro";
+import MarkdownBody from "../components/MarkdownBody.astro";
+import { url, layerLabel, publicEntry } from "../lib/site";
+export async function getStaticPaths() {
+  return (await getCollection("pages", publicEntry)).map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const primaryPath = d.section === "cases" ? "cases" : layerPath(d.layer);
+const primaryLabel = d.section === "cases" ? "Case Studies" : layerLabel(d.layer);
+const { headings } = await render(entry);
+const all = await getCollection("pages", publicEntry);
+const series = d.series
+  ? all
+      .filter((e) => e.data.series === d.series)
+      .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0))
+  : [];
+const position = series.findIndex((e) => e.id === entry.id);
+const previous = series[position - 1],
+  next = series[position + 1];
+const related = all
+  .filter(
+    (e) =>
+      e.id !== entry.id &&
+      !e.data.series &&
+      e.data.layer === d.layer &&
+      (d.design_topic
+        ? e.data.design_topic === d.design_topic
+        : e.data.section === d.section),
+  )
+  .slice(0, 3);
+---
+
+<Site
+  title={d.title}
+  summary={d.summary}
+  canonical={d.canonical}
+  section={primaryPath}
+  headings={headings}
+>
+  <nav class="breadcrumb">
+    <a href={url()}>Home</a> /{" "}
+    <a href={url(primaryPath)}>{primaryLabel}</a>
+    {d.design_topic && (
+      <>
+        {" "}
+        /{" "}
+        <a href={url("ai-design/" + d.design_topic)}>
+          {topicLabel(d.design_topic)}
+        </a>
+      </>
+    )}
+  </nav>
+  <article data-pagefind-body>
+    <header class="document-header">
+      <p class="eyebrow">
+        <span data-pagefind-meta="category">{contentCategory(entry)}</span> /{" "}
+        <span data-pagefind-meta="layer">{layerLabel(d.layer)}</span> / {d.kind}
+      </p>
+      <h1 data-pagefind-meta="title">{d.title}</h1>
+      {d.summary && (
+        <p class="lead" data-pagefind-meta="summary">
+          {d.summary}
+        </p>
+      )}
+      <p class="meta">
+        <span class="status" data-pagefind-meta="status">
+          {d.status}
+        </span>
+        {d.published_at && (
+          <span>
+            公開：<time>{d.published_at}</time>
+          </span>
+        )}
+        {d.updated_at && (
+          <span>
+            更新：<time>{d.updated_at}</time>
+          </span>
+        )}
+      </p>
+      <p class="tags" data-pagefind-meta="tags">
+        {d.tags.join(" / ")}
+      </p>
+    </header>
+    {d.cover && (
+      <img
+        class="book-cover"
+        src={"/ai-design-foundations" + d.cover}
+        alt={d.title + " 表紙"}
+        width="180"
+        loading="lazy"
+      />
+    )}
+    {series.length > 0 && (
+      <nav class="series" aria-label="シリーズ目次" data-pagefind-ignore>
+        <p>
+          <a
+            href={url(
+              series[0].data.publication_format === "series"
+                ? "series"
+                : "cases",
+            )}
+          >
+            {publicationType(series[0])}一覧
+          </a>{" "}
+          / <a href={url(series[0].id)}>{d.series_title} — 全体構成</a>
+        </p>
+        <ol>
+          {series.map((e) => (
+            <li>
+              <ContentLink entry={e} heading="p" current={e.id === entry.id} />
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+    <div class="prose">
+      <MarkdownBody html={entry.rendered?.html || ""} />
+    </div>
+  </article>
+  {series.length > 0 && (
+    <nav class="pagination" aria-label="前後の章">
+      {previous ? (
+        <div>
+          <p>← 前のページ</p>
+          <ContentLink entry={previous} heading="p" />
+        </div>
+      ) : (
+        <span />
+      )}
+      {next && (
+        <div>
+          <p>次のページ →</p>
+          <ContentLink entry={next} heading="p" />
+        </div>
+      )}
+    </nav>
+  )}
+  {d.layer === "ai-design" && (
+    <RelatedPublications entries={relatedPublications(all, d.design_topic)} />
+  )}
+  {d.source?.type === "zenn" && d.section === "cases" && (
+    <p>
+      <a href={url("cases")}>Case Studies — 適用テーマ・設計原則から読む</a>
+    </p>
+  )}
+  {designTopics.some(([key]) =>
+    topicPublications[key]?.includes(series[0]?.id || entry.id),
+  ) && (
+    <section>
+      <h2>関連する設計テーマ</h2>
+      <ul>
+        {designTopics
+          .filter(([key]) =>
+            topicPublications[key]?.includes(series[0]?.id || entry.id),
+          )
+          .map(([key, title, summary]) => (
+            <li>
+              <a href={url("ai-design/" + key)}>{title}</a> — {summary}
+            </li>
+          ))}
+      </ul>
+    </section>
+  )}
+  {related.length > 0 && (
+    <section class="related">
+      <h2>同じ領域のコンテンツ</h2>
+      <ul>
+        {related.map((e) => (
+          <li>
+            <ContentLink entry={e} heading="h3" />
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Site>

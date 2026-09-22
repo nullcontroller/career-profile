@@ -1,0 +1,368 @@
+source_commit: ec04bd4a933fadca50e1d92938e32d8f43c04aa4
+entries:
+  - source_file: 100.数学から見たAI/Instruction・Knowledge・Evidenceの責務分離.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/Instruction%E3%83%BBKnowledge%E3%83%BBEvidence%E3%81%AE%E8%B2%AC%E5%8B%99%E5%88%86%E9%9B%A2
+    destination_file: src/content/knowledge-context/instruction-knowledge-evidence.md
+    destination_slug: instruction-knowledge-evidence
+    category: knowledge-context
+    migrated: true
+    source_sha256: 428a5df0c6db849ea34677de3fde07eb20836ddd43c0dc5f27696560d4370953
+    destination_body_sha256: 2c36dc986c9cbe7e5c5bb96616a36c1be5ae0d86dda3bf07f98985977395b24b
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 100.数学から見たAI/Temperature設計指針.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/Temperature%E8%A8%AD%E8%A8%88%E6%8C%87%E9%87%9D
+    destination_file: src/content/foundations/temperature-design.md
+    destination_slug: temperature-design
+    category: foundations
+    migrated: true
+    source_sha256: e50e8e7f8da8b7e8b605661610a2c662fa3123743f980f46a62b9aa2c81109e3
+    destination_body_sha256: d1e982068bbffe51c2df8fe94aa880f1251785557b5e820c7c083b88b1c445d4
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 100.数学から見たAI/なぜ回答範囲を制限した方がよいのか.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%81%AA%E3%81%9C%E5%9B%9E%E7%AD%94%E7%AF%84%E5%9B%B2%E3%82%92%E5%88%B6%E9%99%90%E3%81%97%E3%81%9F%E6%96%B9%E3%81%8C%E3%82%88%E3%81%84%E3%81%AE%E3%81%8B
+    destination_file: src/content/foundations/answer-scope.md
+    destination_slug: answer-scope
+    category: foundations
+    migrated: true
+    source_sha256: 47ff33487901495692f79a4ed9b025f32bf6c4c427474efcc6be5323d5818f45
+    destination_body_sha256: 917102a896b5a033d5e664e94400cd2b944d438ebac19a7701049c3e37912b33
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 100.数学から見たAI/ハルシネーションの多層制御設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%83%8F%E3%83%AB%E3%82%B7%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%A4%9A%E5%B1%A4%E5%88%B6%E5%BE%A1%E8%A8%AD%E8%A8%88
+    destination_file: src/content/foundations/layered-hallucination-controls.md
+    destination_slug: layered-hallucination-controls
+    category: foundations
+    migrated: true
+    source_sha256: 454e01b36d1347c8e60715550d60cb3a5921fc042fb3ae37561349fe01d4e476
+    destination_body_sha256: b17a970eadcabfe9644a7ce38306e9e25efd0134d9d58428d66cc4dc7026d5fb
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 100.数学から見たAI/ハルシネーションの発生原理.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%83%8F%E3%83%AB%E3%82%B7%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%99%BA%E7%94%9F%E5%8E%9F%E7%90%86
+    destination_file: src/content/foundations/hallucination-mechanisms.md
+    destination_slug: hallucination-mechanisms
+    category: foundations
+    migrated: true
+    source_sha256: 88ff82fb8213e3d9a20fb6a51d8c1815150c0e12c0c7bc0768aec7f7e9045ecb
+    destination_body_sha256: f6d1b80ce807fdc7444db38beb137253dcebfa3ec0412a6545db804bb3dc04ce
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 100.数学から見たAI/生成AIの条件付き確率モデル基礎.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E7%94%9F%E6%88%90AI%E3%81%AE%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E7%A2%BA%E7%8E%87%E3%83%A2%E3%83%87%E3%83%AB%E5%9F%BA%E7%A4%8E
+    destination_file: src/content/foundations/conditional-probability.md
+    destination_slug: conditional-probability
+    category: foundations
+    migrated: true
+    source_sha256: f3fa422526618b3200d3c2b25ec809d997bf37aae96282524b77abc9ed21f40f
+    destination_body_sha256: aad4e31d577f881efa3a85c2940e320fd561ddc3c4f868bf2695452ec9bd901a
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 200.QAチャット設計思想/QAチャット評価設計思想.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/QA%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E8%A9%95%E4%BE%A1%E8%A8%AD%E8%A8%88%E6%80%9D%E6%83%B3
+    destination_file: src/content/evaluation-hitl/qa-evaluation.md
+    destination_slug: qa-evaluation
+    category: evaluation-hitl
+    migrated: true
+    source_sha256: df6ba212a57aa591041a9554d419d61f9cb00239b2093e4e173d786e4a478da1
+    destination_body_sha256: 47c9734c7c571b218f6ccccfa3a8d8bb3dcd6b4eafbc93c8aaa7057fbbd2a557
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 200.QAチャット設計思想/QAチャット運用思想.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/QA%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E9%81%8B%E7%94%A8%E6%80%9D%E6%83%B3
+    destination_file: src/content/knowledge-context/qa-operations.md
+    destination_slug: qa-operations
+    category: knowledge-context
+    migrated: true
+    source_sha256: 988c77aadac92508c92cc58a1d629aa05ebbf67d180a83f8eec3422cf4880eb9
+    destination_body_sha256: f0c2b8ff5d44b5b63543ec8a81feabc946290dcbb88d3471528a0aa283803a3d
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 200.QAチャット設計思想/QA行動制約Knowledge.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/QA%E8%A1%8C%E5%8B%95%E5%88%B6%E7%B4%84Knowledge
+    destination_file: src/content/knowledge-context/qa-behavior-constraints.md
+    destination_slug: qa-behavior-constraints
+    category: knowledge-context
+    migrated: true
+    source_sha256: 809985741b5d0e16cc015169c689ef864a5fd1b783b07936e81fa5235ff9fbe9
+    destination_body_sha256: 168bbd7bf49bd0ee88bd7fc64298ab26658fada0cdfa0f1e4af2af8d57bfa8cd
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 200.QAチャット設計思想/人向け資料とAI向け資料の分離設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E4%BA%BA%E5%90%91%E3%81%91%E8%B3%87%E6%96%99%E3%81%A8AI%E5%90%91%E3%81%91%E8%B3%87%E6%96%99%E3%81%AE%E5%88%86%E9%9B%A2%E8%A8%AD%E8%A8%88
+    destination_file: src/content/knowledge-context/human-and-ai-documentation.md
+    destination_slug: human-and-ai-documentation
+    category: knowledge-context
+    migrated: true
+    source_sha256: 2ee08323f4f31b369393960c113d372e99d7fe79c1c6768694970cf245836db9
+    destination_body_sha256: 7c85b62f411273cf9a8a88977e0320ce17e266e16008e8d29ac0598e3384b910
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 300.プロンプト構造/AI間インターフェースとしてのプロンプト.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E9%96%93%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88
+    destination_file: src/content/architecture/prompts-as-interfaces.md
+    destination_slug: prompts-as-interfaces
+    category: architecture
+    migrated: true
+    source_sha256: f1282515c2bc63b0750d77565dc8b66b0be3bee2301d0709a271891a170fe137
+    destination_body_sha256: b77b475f04da6ed000857344148de50758fde780d350e9c0e4c16d3590f2f610
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 300.プロンプト構造/ガードレールの数学的説明.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%82%AC%E3%83%BC%E3%83%89%E3%83%AC%E3%83%BC%E3%83%AB%E3%81%AE%E6%95%B0%E5%AD%A6%E7%9A%84%E8%AA%AC%E6%98%8E
+    destination_file: src/content/foundations/guardrail-models.md
+    destination_slug: guardrail-models
+    category: foundations
+    migrated: true
+    source_sha256: 5e98be135b29b2faead5de1145b27cda89b827ba1e07ea4920616be82ec9d063
+    destination_body_sha256: 6ac8c55197a48a0611b61ad70cc2c4ec6a2c51e4198717c442c28cc6a9573ab6
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 300.プロンプト構造/プロンプト設計の基本構造.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E8%A8%AD%E8%A8%88%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%A7%8B%E9%80%A0
+    destination_file: src/content/knowledge-context/prompt-structure.md
+    destination_slug: prompt-structure
+    category: knowledge-context
+    migrated: true
+    source_sha256: 58f511930888bd313c27969273761eac5b9dd957d6ffc124ca9bf65aaedb7ab3
+    destination_body_sha256: 37700c36973a6ed8b4c7cea94e919442c1c95c424928c51c40a7969d929f6363
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 300.プロンプト構造/プロンプト設計の失敗モード.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E8%A8%AD%E8%A8%88%E3%81%AE%E5%A4%B1%E6%95%97%E3%83%A2%E3%83%BC%E3%83%89
+    destination_file: src/content/knowledge-context/prompt-failure-modes.md
+    destination_slug: prompt-failure-modes
+    category: knowledge-context
+    migrated: true
+    source_sha256: 9d624f28afea4a702afdc5ddf4e508faa8a05d6fef8891bb94063e4385c16fb5
+    destination_body_sha256: 18143aa73eb998389f3653b8dc91c13aacbc9ba376cf92135142e3eb2de71307
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 400.コード生成/AIを開発工程に組み込む.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E3%82%92%E9%96%8B%E7%99%BA%E5%B7%A5%E7%A8%8B%E3%81%AB%E7%B5%84%E3%81%BF%E8%BE%BC%E3%82%80
+    destination_file: src/content/software-engineering/development-workflow.md
+    destination_slug: development-workflow
+    category: software-engineering
+    migrated: true
+    source_sha256: ef52b107c488e076ec6d88ce4ecd09d067e7d746b2d0bd4a4b739f1f2b11dc12
+    destination_body_sha256: 39b8c35164c1beaf9691ce22b12707b9ceccc4be47e47dda49c77589bea6c155
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 400.コード生成/なぜAIは新規コードよりコード保守に強いのか.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%81%AA%E3%81%9CAI%E3%81%AF%E6%96%B0%E8%A6%8F%E3%82%B3%E3%83%BC%E3%83%89%E3%82%88%E3%82%8A%E3%82%B3%E3%83%BC%E3%83%89%E4%BF%9D%E5%AE%88%E3%81%AB%E5%BC%B7%E3%81%84%E3%81%AE%E3%81%8B
+    destination_file: src/content/software-engineering/code-maintenance-context.md
+    destination_slug: code-maintenance-context
+    category: software-engineering
+    migrated: true
+    source_sha256: 2ad5ef65b7cb91f092b4a3adbc0565142cc5437ccd991f1a2fb5a6ebc0ca71ee
+    destination_body_sha256: 7dc62e58e23cc7383182ad14f0e016dab0902dccd49df93c03df7db4bbdf54f1
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 400.コード生成/コード生成AIの正体.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90AI%E3%81%AE%E6%AD%A3%E4%BD%93
+    destination_file: src/content/software-engineering/code-generation-models.md
+    destination_slug: code-generation-models
+    category: software-engineering
+    migrated: true
+    source_sha256: abaaaf9ca80884e9cd6e717261a9456d4856108bed873ea05871e1f5f2e0cd74
+    destination_body_sha256: dbde38d3b45548c3d00c194280bb7d58761cfe839552fa27604669d46e23561b
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 400.コード生成/コード生成AIの評価と採用設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90AI%E3%81%AE%E8%A9%95%E4%BE%A1%E3%81%A8%E6%8E%A1%E7%94%A8%E8%A8%AD%E8%A8%88
+    destination_file: src/content/evaluation-hitl/code-evaluation-acceptance.md
+    destination_slug: code-evaluation-acceptance
+    category: evaluation-hitl
+    migrated: true
+    source_sha256: 6c74be8f3f29a0ec8f2d58febcb95ce1173b7f81cf32aae203b2d43309c7b787
+    destination_body_sha256: cce235d0d7b0e37e79b21785184db78079fbba7ad8716ca79c0ba329a4569869
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 400.コード生成/コード生成を使うべき場所.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90%E3%82%92%E4%BD%BF%E3%81%86%E3%81%B9%E3%81%8D%E5%A0%B4%E6%89%80
+    destination_file: src/content/software-engineering/code-generation-boundaries.md
+    destination_slug: code-generation-boundaries
+    category: software-engineering
+    migrated: true
+    source_sha256: 425b76fc1c3c235db83a7079a33f78acfeb2b900582153d3308551c42116a72f
+    destination_body_sha256: 2b15dedd2eec3a62cb733eb11a2a48fd156939efaa4fb33178f3ea641355fc42
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 500.AIオーケストレーション/AIコスト・Latency・モデルルーティング設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E3%82%B3%E3%82%B9%E3%83%88%E3%83%BBLatency%E3%83%BB%E3%83%A2%E3%83%87%E3%83%AB%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E8%A8%AD%E8%A8%88
+    destination_file: src/content/architecture/cost-latency-routing.md
+    destination_slug: cost-latency-routing
+    category: architecture
+    migrated: true
+    source_sha256: fa13f59ccee34687483f3a873a03f769b810c2eb7af444ba724f6064ab14b157
+    destination_body_sha256: 0437fcbdf9c64fe9738a9f77a2c21e89f7478ff4b368f6f556f5db7725660bce
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 500.AIオーケストレーション/複数AIの役割分担と工程設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E8%A4%87%E6%95%B0AI%E3%81%AE%E5%BD%B9%E5%89%B2%E5%88%86%E6%8B%85%E3%81%A8%E5%B7%A5%E7%A8%8B%E8%A8%AD%E8%A8%88
+    destination_file: src/content/software-engineering/multi-ai-orchestration.md
+    destination_slug: multi-ai-orchestration
+    category: software-engineering
+    migrated: true
+    source_sha256: 4f2818fec5f743a66bfc97041651a64262332381ff218b3810a63fa7ec249299
+    destination_body_sha256: 7a871feec97ffc45b7259c12d6ae9b5a00556899a22ddb4dd21d72c7fb3b70cf
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 600.AIガバナンスとHITL/AI出力の責任境界とHITL.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E5%87%BA%E5%8A%9B%E3%81%AE%E8%B2%AC%E4%BB%BB%E5%A2%83%E7%95%8C%E3%81%A8HITL
+    destination_file: src/content/evaluation-hitl/responsibility-and-hitl.md
+    destination_slug: responsibility-and-hitl
+    category: evaluation-hitl
+    migrated: true
+    source_sha256: df8bf91e6df0af82c90af8a56ff77a5aa51234d8f438b26c430eb4fb7f64c031
+    destination_body_sha256: de8825640ecd22ab070c9a3cabd2dde26d026bb75ef0a5861cce47fa6213a16a
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 600.AIガバナンスとHITL/AI適用可否と委任レベルの設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E9%81%A9%E7%94%A8%E5%8F%AF%E5%90%A6%E3%81%A8%E5%A7%94%E4%BB%BB%E3%83%AC%E3%83%99%E3%83%AB%E3%81%AE%E8%A8%AD%E8%A8%88
+    destination_file: src/content/foundations/applicability-and-delegation.md
+    destination_slug: applicability-and-delegation
+    category: foundations
+    migrated: true
+    source_sha256: 6bd9f601065f2fb80f994fae0bd16a2ea187e7a438a116b5e6ad5a3f357122bc
+    destination_body_sha256: 987c00f2129563cbc2a76978b35a06cabeb211b379bc7a7cc459d6ac3ca130f4
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 600.AIガバナンスとHITL/生成AIセキュリティと脅威モデリング.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E7%94%9F%E6%88%90AI%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%A8%E8%84%85%E5%A8%81%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0
+    destination_file: src/content/architecture/security-threat-modeling.md
+    destination_slug: security-threat-modeling
+    category: architecture
+    migrated: true
+    source_sha256: ae2dd15f8f3816c066975c6f6650af3f6d4e5988acd59d71706e655dd447d699
+    destination_body_sha256: 7cf6fd6bbf1624aa813235adc08a6c0fc552d70006550bfe419c6c313d18a270
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 700.AIシステムアーキテクチャとライフサイクル/AIシステムのオブザーバビリティとSLO設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E3%82%AA%E3%83%96%E3%82%B6%E3%83%BC%E3%83%90%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%E3%81%A8SLO%E8%A8%AD%E8%A8%88
+    destination_file: src/content/architecture/observability-and-slo.md
+    destination_slug: observability-and-slo
+    category: architecture
+    migrated: true
+    source_sha256: 1e17eebe77134f865a7434d27cb73783446c9a802bc250dab68d672206ed6e0b
+    destination_body_sha256: 2ba2407fadf3cd0314fdb32f7cc1ec8e3b590675cbf442e699332cea65582a29
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 700.AIシステムアーキテクチャとライフサイクル/AIシステムの変更・再評価設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%A4%89%E6%9B%B4%E3%83%BB%E5%86%8D%E8%A9%95%E4%BE%A1%E8%A8%AD%E8%A8%88
+    destination_file: src/content/architecture/change-and-reevaluation.md
+    destination_slug: change-and-reevaluation
+    category: architecture
+    migrated: true
+    source_sha256: 23388bdacd08c0824b8c2e3ca9731ed351458523768fd54463e05706366bbb94
+    destination_body_sha256: c64ac4eef10fe555b1eadf4f1ad2e4a2817c3edc015d4e24c7b67996e56aa4d7
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 700.AIシステムアーキテクチャとライフサイクル/AI業務システムの参照アーキテクチャ.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E6%A5%AD%E5%8B%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3
+    destination_file: src/content/architecture/reference-architecture.md
+    destination_slug: reference-architecture
+    category: architecture
+    migrated: true
+    source_sha256: f905ec69f8b06f58583c38b9a7922fdab8f5fc3cec97b926687d4d0ec5e20fce
+    destination_body_sha256: aad6a09f2f89ff43dae84876b3ffd02f19edcee430075fd55b2c6d71948622e6
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 700.AIシステムアーキテクチャとライフサイクル/AI評価データセットと回帰評価設計.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/AI%E8%A9%95%E4%BE%A1%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%81%A8%E5%9B%9E%E5%B8%B0%E8%A9%95%E4%BE%A1%E8%A8%AD%E8%A8%88
+    destination_file: src/content/evaluation-hitl/datasets-and-regression.md
+    destination_slug: datasets-and-regression
+    category: evaluation-hitl
+    migrated: true
+    source_sha256: 3747b771c8a4dfbf3e6da1659f260a1bff0dfe391b41d9533c38b3cf523580c0
+    destination_body_sha256: 80cee46d293905a24ffd0ac17f88128e0ba3f13d7357e586052b187f510fcbce
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: Home.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/Home
+    destination_file: src/content/foundations/wiki-overview.md
+    destination_slug: wiki-overview
+    category: foundations
+    migrated: true
+    source_sha256: fdf585712bd592abe4398c97ce071e7b4cf4eaf7d72fb1436a4530fc9502414a
+    destination_body_sha256: 9a1194054607b2978b4d54c9bcca42d08afefb8557451d1425e7e6250889dfe3
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+  - source_file: 用語・数式索引.md
+    source_type: wiki
+    original_url: https://github.com/nullcontroller/ai-design-foundations/wiki/%E7%94%A8%E8%AA%9E%E3%83%BB%E6%95%B0%E5%BC%8F%E7%B4%A2%E5%BC%95
+    destination_file: src/content/foundations/glossary.md
+    destination_slug: glossary
+    category: foundations
+    migrated: true
+    source_sha256: 974af22e10ab7d273baf2f439a930a347b14a796503e1bfbc672cf2eff1eacf1
+    destination_body_sha256: acd6a34b2a0c0119d428ac4cb3b158ac0782ba4c94e2a44f371bf1327f5aa521
+    notes:
+      - "Body: only heading levels, Wiki/internal links and image paths
+        mechanically converted."
+excluded:
+  - "_Sidebar.md: replaced by site navigation"
+  - "_Footer.md: replaced by site footer"
+notes:
+  - Local historical nested copies are not authoritative; public Wiki HEAD was
+    migrated. No prose merged.

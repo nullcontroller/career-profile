@@ -1,0 +1,17 @@
+{
+  "source_commit": "426338274e7bbb0b6a66bc6edf95a2161356fbdc",
+  "entries": [
+    {
+      "source_file": "index.md",
+      "destination_file": "src/content/career/overview.md",
+      "source_sha256": "904f71cb5684d60c7a1209c48f89e71a48258baf388127303d32061381266877",
+      "destination_body_sha256": "0446f0020d31b0e337fd97c2bcca705a2a7afb0d330842563acd90f586167dea"
+    },
+    {
+      "source_file": "profile/index.md",
+      "destination_file": "src/content/career/profile.md",
+      "source_sha256": "0d7ba53d536134b193aaf2804a721146973fc83212666fe2fe2cf2c53c6b2327",
+      "destination_body_sha256": "47c80a19c26559fcb534d7375ee19067d39e3a0df9048f87896b626dad365188"
+    }
+  ]
+}

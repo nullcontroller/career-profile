@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../layouts/Site.astro";
+import SeriesIndex from "../components/SeriesIndex.astro";
+import { publicEntry, url } from "../lib/site";
+const all = await getCollection("pages", publicEntry);
+---
+
+<Site title="連載" section="articles">
+  <h1>連載</h1>
+  <p class="lead">AIを業務へ組み込む設計原則を、テーマごとに読み進める。</p>
+  <p>
+    <a href={url("overview")}>全体目次</a> ·{" "}
+    <a href={url("cases")}>実務事例のBook</a> ·{" "}
+    <a href={url("articles")}>記事一覧</a>
+  </p>
+  {all
+    .filter((e) => e.data.publication_format === "series")
+    .map((entry) => (
+      <SeriesIndex entry={entry} all={all} />
+    ))}
+</Site>

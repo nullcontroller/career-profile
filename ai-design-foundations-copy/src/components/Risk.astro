@@ -1,0 +1,10 @@
+---
+import SemanticBlock from "./SemanticBlock.astro";
+interface Props {
+  title?: string;
+}
+---
+
+<SemanticBlock kind="risk" title={Astro.props.title}>
+  <slot />
+</SemanticBlock>

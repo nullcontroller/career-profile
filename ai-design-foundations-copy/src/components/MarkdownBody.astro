@@ -1,0 +1,53 @@
+---
+import { load } from "cheerio";
+import { getCollection } from "astro:content";
+import { publicEntry, url } from "../lib/site";
+import { publicHtml, normalizeSourceUrl } from "../lib/public-html.mjs";
+const sourceLinks = new Map<string, string>([
+  ["https://zenn.dev/nullcontroller", url("articles")],
+  ["https://github.com/nullcontroller/ai-design-foundations", url("ai-design")],
+  [
+    "https://github.com/nullcontroller/ai-design-foundations/wiki",
+    url("ai-design"),
+  ],
+]);
+for (const entry of await getCollection("pages", publicEntry)) {
+  for (const source of [entry.data.source?.url, entry.data.canonical]) {
+    if (source) sourceLinks.set(normalizeSourceUrl(source), url(entry.id));
+  }
+}
+import Principle from "./Principle.astro";
+import Decision from "./Decision.astro";
+import Risk from "./Risk.astro";
+import Responsibility from "./Responsibility.astro";
+import Evidence from "./Evidence.astro";
+import Case from "./Case.astro";
+import Note from "./Note.astro";
+interface Props {
+  html: string;
+}
+const components = {
+  principle: Principle,
+  decision: Decision,
+  risk: Risk,
+  responsibility: Responsibility,
+  evidence: Evidence,
+  case: Case,
+  note: Note,
+};
+const $ = load(publicHtml(Astro.props.html, sourceLinks), null, false);
+const nodes = $.root().contents().toArray();
+---
+
+{nodes.map((node) => {
+  const el = $(node);
+  const kind = el.attr("data-kind") as keyof typeof components;
+  const Block = components[kind];
+  return Block ? (
+    <Block title={el.attr("data-title")}>
+      <Astro.self html={el.html() || ""} />
+    </Block>
+  ) : (
+    <Fragment set:html={$.html(node)} />
+  );
+})}

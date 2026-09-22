@@ -1,0 +1,32 @@
+---
+import Site from "../layouts/Site.astro";
+import { url } from "../lib/site";
+---
+
+<Site title="プロフィール" section="profile" ogType="profile" ogImage="og/site.png">
+  <nav class="breadcrumb"><a href={url()}>ホーム</a> / プロフィール</nav>
+  <article data-pagefind-body>
+    <header class="document-header">
+      <p class="eyebrow">PROFILE</p>
+      <h1 data-pagefind-meta="title">プロフィール</h1>
+      <p class="lead" data-pagefind-meta="summary">立林 裕太朗</p>
+    </header>
+    <div class="prose">
+      <p>ソフトウェア開発、プロジェクトマネジメント、生成AI / RAG、Knowledge / Context設計などを経験してきました。</p>
+      <p>現在はApplied AI、システム企画・アーキテクチャを中心に、AI・人間・既存システムを含む業務システムの設計に取り組んでいます。</p>
+      <h2>これまでの経験</h2>
+      <ul>
+        <li>2016年よりソフトウェア開発に従事</li>
+        <li>Windowsアプリケーション開発、プロジェクトマネジメント</li>
+        <li>生成AIを活用したQA / RAGシステム</li>
+        <li>既存ソフトウェアへのAI活用とKnowledge / Context設計</li>
+      </ul>
+      <h2>設計で重視していること</h2>
+      <p>AIそのものを目的とせず、「何をAIに任せるか」「何を人間が判断するか」「何を既存ソフトウェアに任せるか」という責任境界を含めたシステム設計を重視しています。</p>
+      <p>継続的に担当する製品・システムについて理解を蓄積し、利用・運用から得た知見を設計へ戻しながら、長期的に改善していく仕事を好みます。</p>
+      <h2>次に読む</h2>
+      <p>詳細な職務経歴・今後の方向性・希望条件は<a href={url("career")}>キャリア</a>で説明しています。</p>
+      <p><a href={url("about")}>このサイトについて</a>では、この技術サイトの目的と設計を紹介しています。</p>
+    </div>
+  </article>
+</Site>

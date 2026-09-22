@@ -1,0 +1,90 @@
+---
+import Site from "../layouts/Site.astro";
+import { url } from "../lib/site";
+---
+
+<Site
+  title="ホーム"
+  summary="立林裕太朗の個人技術サイト。Applied AIとシステムアーキテクチャを軸に、AIを業務システムへ組み込むための設計原則、理論的背景、実務事例を公開しています。"
+  section="home"
+  showSidebar={false}
+>
+  <section class="hero landing-hero">
+    <p class="eyebrow">APPLIED AI / SYSTEM ARCHITECTURE</p>
+    <h1>立林 裕太朗</h1>
+    <p class="landing-title">AIを、業務で使える形に設計する。</p>
+    <p class="lead">AIをどこに使うか。人間とAIの責任をどう分けるか。既存システムとどう組み合わせるか。</p>
+    <p>その設計原則・理論・実践を、技術知識として整理しています。</p>
+    <nav class="library-links" aria-label="主要導線">
+      <a class="primary-link" href={url("ai-design")}>まずAI設計を読む →</a>
+      <a href={url("profile")}>プロフィールを見る</a>
+    </nav>
+  </section>
+
+  <section class="landing-section start-here" aria-labelledby="start-heading">
+    <p class="eyebrow">START HERE</p>
+    <h2 id="start-heading">はじめて読む方へ</h2>
+    <p class="section-intro">最初はこの3つから。設計、理論、実例を順に読めます。</p>
+    <div class="start-grid">
+      <a class="start-entry" href={url("ai-design")}>
+        <span class="start-number">01</span>
+        <h3>AI設計</h3>
+        <p>AIを業務システムへ組み込むための設計原則。AI・人間・既存システムの役割と責任を設計します。</p>
+        <span class="entry-cta">AI設計から読む →</span>
+      </a>
+      <a class="start-entry" href={url("ai-mathematics")}>
+        <span class="start-number">02</span>
+        <h3>AI数学論</h3>
+        <p>AIがなぜそのように振る舞うのか。確率・生成条件・モデルの性質から設計判断の背景を理解します。</p>
+        <span class="entry-cta">仕組みから理解する →</span>
+      </a>
+      <a class="start-entry" href={url("cases")}>
+        <span class="start-number">03</span>
+        <h3>事例</h3>
+        <p>設計原則を実際の業務・既存システムへ適用した実務事例。</p>
+        <span class="entry-cta">実例を見る →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="landing-section reading-path" aria-labelledby="reading-heading">
+    <p class="eyebrow">READING PATH</p>
+    <h2 id="reading-heading">どう読むか</h2>
+    <div class="path-grid">
+      <div><span>01</span><h3>AI設計</h3><p>まず、AIをどこへ使い、人間や既存システムとどう役割分担するかを読む。</p></div>
+      <div><span>02</span><h3>AI数学論</h3><p>なぜその設計が必要なのか、AIの性質を理論から探る。</p></div>
+      <div><span>03</span><h3>事例</h3><p>実際の業務・システムでどう適用したかを見る。</p></div>
+    </div>
+  </section>
+
+  <section class="landing-section featured-ideas" aria-labelledby="ideas-heading">
+    <p class="eyebrow">QUESTIONS</p>
+    <h2 id="ideas-heading">こんな問いを考えています</h2>
+    <ul>
+      <li><a href={url("ai-design/applicability")}>AIを使うべき仕事と、使わない方がよい仕事は何か</a></li>
+      <li><a href={url("ai-design/responsibility-control")}>AIの判断に誰が責任を持つのか</a></li>
+      <li><a href={url("ai-design/knowledge-context")}>RAGは何を解決し、何を解決しないのか</a></li>
+      <li><a href={url("ai-design/software-engineering")}>AIと既存ソフトウェアをどう分担するか</a></li>
+      <li><a href={url("ai-design/evaluation-hitl")}>AIが生成した成果物をどう評価するか</a></li>
+      <li><a href={url("ai-design/lifecycle-operations")}>システムを長期的に変更可能な状態へどう保つか</a></li>
+    </ul>
+  </section>
+
+  <section class="landing-section author-strip" aria-labelledby="author-heading">
+    <p class="eyebrow">ABOUT THE AUTHOR</p>
+    <h2 id="author-heading">About</h2>
+    <p>立林裕太朗。ソフトウェア開発、プロジェクトマネジメント、生成AI / RAG、Knowledge / Context設計等を経験。現在はApplied AIとシステムアーキテクチャを軸に、AI・人間・既存システムを含む業務システム設計を考えています。</p>
+    <nav class="library-links" aria-label="著者情報">
+      <a href={url("career")}>キャリアを見る →</a>
+      <a href={url("career/profile")}>詳細職務経歴を見る →</a>
+    </nav>
+  </section>
+
+  <section class="landing-section publications-strip" aria-labelledby="publications-heading">
+    <p class="eyebrow">PUBLICATIONS</p>
+    <h2 id="publications-heading">記事</h2>
+    <p>設計論・技術解説・Essay・過去のPublicationをまとめています。</p>
+    <a href={url("articles")}>記事を見る →</a>
+  </section>
+</Site>
+

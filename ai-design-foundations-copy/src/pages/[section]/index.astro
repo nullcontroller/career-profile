@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../../layouts/Site.astro";
+import ContentIndex from "../../components/ContentIndex.astro";
+import RelatedPublications from "../../components/RelatedPublications.astro";
+import PublicationLink from "../../components/PublicationLink.astro";
+import { sections, publicEntry, url } from "../../lib/site";
+import { isPublication } from "../../lib/navigation";
+export function getStaticPaths() {
+  return sections
+    .filter(([key]) => !["cases", "practices"].includes(key))
+    .map(([section, title, summary]) => ({
+      params: { section },
+      props: { title, summary },
+    }));
+}
+const { title, summary } = Astro.props;
+const all = await getCollection("pages", publicEntry);
+const entries = all.filter((e) => e.data.section === Astro.params.section);
+const essays = Astro.params.section === "essays";
+const oldFoundations = Astro.params.section === "foundations";
+---
+
+<Site
+  title={oldFoundations ? "AI Design Foundations" : title}
+  section={essays ? "articles" : "ai-design"}
+>
+  <h1>{oldFoundations ? "AI Design Foundations" : title}</h1>
+  <p class="lead">{summary}</p>
+  {oldFoundations ? (
+    <>
+      <p>
+        主要な入口は<a href={url("start-here")}>Start Here</a>
+        から選べます。
+      </p>
+      <nav class="topic-navigation">
+        <a href={url("ai-design")}>AI Design</a>
+        <a href={url("ai-mathematics")}>AI数学論</a>
+        <a href={url("reference")}>Reference</a>
+      </nav>
+    </>
+  ) : essays ? (
+    <p>
+      <a href={url("articles")}>記事一覧</a>
+      のうち、市場・キャリア・技術への論考を読む入口です。
+    </p>
+  ) : (
+    <p>
+      設計知識の入口は
+      <a href={url("ai-design/" + Astro.params.section)}>AI Design / {title}</a>
+      です。
+    </p>
+  )}
+  {essays ? (
+    <div class="document-list">
+      {entries.filter(isPublication).map((entry) => (
+        <article>
+          <PublicationLink entry={entry} heading="h2" />
+        </article>
+      ))}
+    </div>
+  ) : (
+    <>
+      <h2>AI Design</h2>
+      <ContentIndex
+        entries={entries.filter((e) => e.data.layer === "ai-design")}
+      />
+      {entries.some((e) => e.data.layer === "ai-mathematics") && (
+        <section>
+          <h2>
+            <a href={url("ai-mathematics")}>AI数学論へ</a>
+          </h2>
+          <ContentIndex
+            entries={entries.filter((e) => e.data.layer === "ai-mathematics")}
+          />
+        </section>
+      )}
+      {entries.some((e) => e.data.layer === "practice") && (
+        <section>
+          <h2>
+            <a href={url("practices")}>Practicesへ</a>
+          </h2>
+          <ContentIndex
+            entries={entries.filter((e) => e.data.layer === "practice")}
+          />
+        </section>
+      )}
+      <RelatedPublications entries={entries.filter(isPublication)} />
+    </>
+  )}
+</Site>

@@ -1,0 +1,116 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../layouts/Site.astro";
+import ContentIndex from "../components/ContentIndex.astro";
+import PublicationLink from "../components/PublicationLink.astro";
+import SeriesIndex from "../components/SeriesIndex.astro";
+import { designTopics, caseStudies, isPublication } from "../lib/navigation";
+import { publicEntry, url } from "../lib/site";
+const all = await getCollection("pages", publicEntry);
+const groups = [
+  ["ai-mathematics", "AI数学論", "AIがなぜそう振る舞うかを理解する。"],
+  ["ai-design", "AI Design", "業務システムへの組込みを設計する。"],
+  ["practice", "Practices", "業務・組織・開発へ適用する。"],
+] as const;
+const anchors = [
+  ["career", "キャリア"],
+  ["ai-mathematics", "AI数学論"],
+  ["ai-design", "AI設計"],
+  ["practice", "実践"],
+  ["books", "実務Book"],
+  ["series", "連載"],
+  ["articles", "記事"],
+  ["reference", "参照資料"],
+];
+---
+
+<Site
+  title="全体目次"
+  section="overview"
+  headings={anchors.map(([slug, text]) => ({ depth: 2, slug, text }))}
+>
+  <h1>全体目次</h1>
+  <p class="lead">
+    キャリアから設計知識、実務事例、公開記事まで。読みたい領域と全体の構成を、ここから見渡せます。
+  </p>
+  <nav class="topic-navigation" aria-label="全体目次の領域">
+    {anchors.map(([id, title]) => (
+      <a href={"#" + id}>{title}</a>
+    ))}
+  </nav>
+  <section>
+    <h2 id="career">キャリア</h2>
+    <p>
+      <a href={url("career")}>キャリア概要・専門領域・今後の方向性</a>
+    </p>
+    <p>
+      <a href={url("career/profile")}>詳しい職務経歴・希望条件を見る</a>
+    </p>
+  </section>
+  {groups.map(([layer, title, summary]) => (
+    <section>
+      <h2 id={layer}>{title}</h2>
+      <p>{summary}</p>
+      {layer === "ai-design" ? (
+        designTopics.map(([key, name, description]) => (
+          <section>
+            <h3>
+              <a href={url("ai-design/" + key)}>{name}</a>
+            </h3>
+            <p>{description}</p>
+            <ContentIndex
+              entries={all.filter(
+                (e) => e.data.layer === layer && e.data.design_topic === key,
+              )}
+            />
+          </section>
+        ))
+      ) : (
+        <ContentIndex entries={all.filter((e) => e.data.layer === layer)} />
+      )}
+    </section>
+  ))}
+  <section>
+    <h2 id="books">実務Book — Case Studies</h2>
+    <p>2つの実務事例。概要と全章目次から読む章を選べます。</p>
+    {caseStudies.map((study) => (
+      <SeriesIndex entry={all.find((e) => e.id === study.book)!} all={all} />
+    ))}
+  </section>
+  <section>
+    <h2 id="series">連載</h2>
+    {all
+      .filter((e) => e.data.publication_format === "series")
+      .map((entry) => (
+        <SeriesIndex entry={entry} all={all} />
+      ))}
+  </section>
+  <section>
+    <h2 id="articles">単発記事・Essay</h2>
+    <p>
+      <a href={url("articles")}>形式・テーマで絞り込む</a>
+    </p>
+    <ul class="content-index">
+      {all
+        .filter((e) => isPublication(e) && !e.data.series)
+        .map((entry) => (
+          <li>
+            <PublicationLink entry={entry} />
+          </li>
+        ))}
+    </ul>
+  </section>
+  <section>
+    <h2 id="reference">参照資料</h2>
+    <ContentIndex
+      entries={all.filter(
+        (e) =>
+          e.data.layer === "reference" && e.id !== "foundations/wiki-overview",
+      )}
+    />
+    <p>
+      <a href={url("reference")}>参考資料</a> ·{" "}
+      <a href={url("search")}>検索</a>
+    </p>
+  </section>
+</Site>

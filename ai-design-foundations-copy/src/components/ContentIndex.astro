@@ -1,0 +1,16 @@
+---
+import ContentLink from "./ContentLink.astro";
+import type { Entry } from "../lib/navigation";
+interface Props {
+  entries: Entry[];
+}
+const { entries } = Astro.props;
+---
+
+<div class="document-list" data-primary-index>
+  {entries.map((entry) => (
+    <article>
+      <ContentLink entry={entry} />
+    </article>
+  ))}
+</div>

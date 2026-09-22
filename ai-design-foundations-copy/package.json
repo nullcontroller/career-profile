@@ -1,0 +1,37 @@
+{
+  "name": "ai-design-foundations",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check && node scripts/verify-content.mjs && node scripts/verify-content-health.mjs",
+    "build": "astro build && pagefind --site dist && node scripts/verify-links.mjs && node scripts/verify-index.mjs && node scripts/verify-public-site.mjs && node scripts/verify-brand-assets.mjs && npm run seo:check",
+    "preview": "astro preview",
+    "test": "node --test scripts/*.test.mjs",
+    "seo:check": "node scripts/verify-seo.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@pagefind/default-ui": "^1.5.2",
+    "astro": "^7.3.3",
+    "katex": "^0.18.7",
+    "mermaid": "^11.17.2",
+    "rehype-katex": "^7.0.1",
+    "remark-directive": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "typescript": "^6.0.3",
+    "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "cheerio": "^1.2.0",
+    "pagefind": "^1.5.2",
+    "prettier": "^3.9.8",
+    "prettier-plugin-astro": "^1.0.1",
+    "yaml": "^2.9.1"
+  }
+}

@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../layouts/Site.astro";
+import ContentLink from "../components/ContentLink.astro";
+import ContentIndex from "../components/ContentIndex.astro";
+import { publicEntry, url } from "../lib/site";
+const entries = (await getCollection("pages", publicEntry)).filter(
+  (e) => e.data.layer === "ai-mathematics",
+);
+const readingIds = [
+  "foundations/llm-as-probabilistic-model",
+  "foundations/conditional-probability",
+  "foundations/temperature-design",
+  "foundations/hallucination-mechanisms",
+  "software-engineering/code-generation-models",
+];
+const reading = readingIds.map((id) => {
+  const entry = entries.find((e) => e.id === id);
+  if (!entry) throw new Error("Missing mathematics reading: " + id);
+  return entry;
+});
+---
+
+<Site
+  title="AI数学論"
+  section="ai-mathematics"
+  ogImage="og/ai-design-foundations.png"
+>
+  <h1>AI数学論</h1>
+  <p class="lead">
+    AIがなぜそう振る舞うのかを、数学・確率・モデルから理解する。
+  </p>
+  <p>
+    出力の揺らぎ、条件付き確率、Temperature、Hallucination、コード生成モデルの仕組みを扱います。業務への組込みは
+    <a href={url("ai-design")}>AI Design</a>から直接読むこともできます。
+  </p>
+  <h2>推奨する読み順</h2>
+  <p>
+    概念理解 → 数学 → 出力制御 → エラー特性 →
+    応用モデルの順に読み進めます。必要なページから直接参照しても構いません。
+  </p>
+  <ol class="reading-route" data-mathematics-reading>
+    {reading.map((entry, i) => (
+      <li>
+        <span>{String(i + 1).padStart(2, "0")}</span>
+        <ContentLink entry={entry} heading="h3" />
+      </li>
+    ))}
+  </ol>
+  <h2>AI数学論の一覧</h2>
+  <ContentIndex entries={entries} />
+</Site>

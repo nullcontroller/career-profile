@@ -1,0 +1,30 @@
+---
+import type { Entry } from "../lib/navigation";
+import {
+  publicationType,
+  publicationDate,
+  publicationTopic,
+  publicationTopics,
+} from "../lib/navigation";
+import { url } from "../lib/site";
+interface Props {
+  entry: Entry;
+  heading?: "h2" | "h3" | "p";
+}
+const { entry, heading: Heading = "h3" } = Astro.props;
+const d = entry.data;
+---
+
+<div class="content-entry publication-entry" data-content-id={entry.id}>
+  <p class="meta">
+    {publicationType(entry)} · {publicationTopic(entry)}
+  </p>
+  <Heading class="content-title">
+    <a href={url(entry.id)}>{d.title}</a>
+  </Heading>
+  <p class="content-summary">{d.summary}</p>
+  <p class="meta publication-date">公開：{publicationDate(entry)}</p>
+  <p class="tags publication-topics">
+    Topics：{publicationTopics(entry).join(" / ")}
+  </p>
+</div>

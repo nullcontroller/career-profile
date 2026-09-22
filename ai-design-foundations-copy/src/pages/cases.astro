@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../layouts/Site.astro";
+import SeriesIndex from "../components/SeriesIndex.astro";
+import { caseStudies } from "../lib/navigation";
+import { publicEntry, url } from "../lib/site";
+const all = await getCollection("pages", publicEntry);
+---
+
+<Site title="事例" section="cases">
+  <h1>事例</h1>
+  <p class="lead">実務での課題・設計判断・実装・結果を、2冊のBookで読む。</p>
+  <p>まず概要から全体を掴み、目次から必要な章へ進めます。</p>
+  <nav class="topic-navigation" aria-label="全体と公開物への入口">
+    <a href={url("overview")}>全体目次</a>
+    <a href={url("series")}>設計原則の連載</a>
+    <a href={url("articles")}>記事一覧</a>
+  </nav>
+  {caseStudies.map((study) => (
+    <section class="case-study-index">
+      <SeriesIndex entry={all.find((e) => e.id === study.book)!} all={all} />
+    </section>
+  ))}
+</Site>

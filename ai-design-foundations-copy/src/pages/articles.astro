@@ -1,0 +1,109 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../layouts/Site.astro";
+import PublicationLink from "../components/PublicationLink.astro";
+import {
+  isPublication,
+  publicationType,
+  publicationTopics,
+} from "../lib/navigation";
+import { publicEntry, url } from "../lib/site";
+const entries = (await getCollection("pages", publicEntry))
+  .filter(isPublication)
+  .sort((a, b) =>
+    (
+      b.data.published_at ||
+      b.data.source?.publication_month ||
+      ""
+    ).localeCompare(
+      a.data.published_at || a.data.source?.publication_month || "",
+    ),
+  );
+const topics = [...new Set(entries.flatMap(publicationTopics))];
+---
+
+<Site title="記事" section="articles">
+  <h1>記事</h1>
+  <p class="lead">単発記事・Book・連載・Essayを、形式とテーマから探す。</p>
+  <p>
+    独立した公開物を、形式・テーマから探せます。設計知識の正本は
+    <a href={url("ai-design")}>AI設計</a>、事例の適用過程は
+    <a href={url("cases")}>事例</a>へ。
+  </p>
+  <nav class="topic-navigation" aria-label="出版形式">
+    <a href={url("overview")}>全体目次</a>
+    <a href={url("books")}>実務事例のBook 2冊</a>
+    <a href={url("series")}>連載</a>
+    <a href={url("essays")}>論考</a>
+  </nav>
+  <form
+    class="publication-filters"
+    id="publication-filters"
+    aria-label="記事の絞り込み"
+  >
+    <label>
+      Format
+      <select name="type">
+        <option value="">すべて</option>
+        <option>記事</option>
+        <option>書籍</option>
+        <option>連載</option>
+        <option>論考</option>
+      </select>
+    </label>
+    <label>
+      Topic
+      <select name="topic">
+        <option value="">すべて</option>
+        {topics.map((x) => (
+          <option>{x}</option>
+        ))}
+      </select>
+    </label>
+    <button type="reset">解除</button>
+  </form>
+  <p id="publication-count" role="status" aria-live="polite">
+    {entries.length}件
+  </p>
+  <noscript>JavaScriptが無効の場合は全件を表示します。</noscript>
+  <div class="document-list publication-list">
+    {entries.map((entry) => (
+      <article
+        data-publication
+        data-type={publicationType(entry)}
+        data-topic={JSON.stringify(publicationTopics(entry))}
+      >
+        <PublicationLink entry={entry} heading="h2" />
+      </article>
+    ))}
+  </div>
+</Site>
+<script>
+  const form = document.querySelector<HTMLFormElement>("#publication-filters")!;
+  const items = [
+    ...document.querySelectorAll<HTMLElement>("[data-publication]"),
+  ];
+  function filter() {
+    const data = new FormData(form);
+    let count = 0;
+    for (const item of items) {
+      const show = ["type", "topic"].every(
+        (key) =>
+          !data.get(key) ||
+          (key === "topic"
+            ? JSON.parse(item.dataset.topic || "[]").includes(data.get(key))
+            : data.get(key) === item.dataset[key]),
+      );
+      item.hidden = !show;
+      if (show) count++;
+    }
+    document.querySelector("#publication-count")!.textContent = count
+      ? count + "件"
+      : "該当する公開物はありません";
+  }
+  form.addEventListener("change", filter);
+  form.addEventListener("reset", () => {
+    for (const select of form.querySelectorAll("select")) select.value = "";
+    filter();
+  });
+</script>

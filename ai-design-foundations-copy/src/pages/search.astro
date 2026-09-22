@@ -1,0 +1,120 @@
+---
+import Site from "../layouts/Site.astro";
+---
+
+<Site title="検索">
+  <h1>設計知識を検索</h1>
+  <p>タイトル・概要・見出し・本文・タグから検索できます。</p>
+  <form id="search-form" role="search">
+    <label for="search-input">キーワード</label>
+    <div class="search-controls">
+      <input id="search-input" type="search" autocomplete="off" />
+      <button type="submit">検索</button>
+    </div>
+  </form>
+  <p id="search-status" role="status" aria-live="polite"></p>
+  <ol id="search-results" class="content-index"></ol>
+  <button id="search-more" type="button" hidden>
+    さらに表示
+  </button>
+  <noscript>
+    検索にはJavaScriptが必要です。カテゴリ一覧からも文書を閲覧できます。
+  </noscript>
+</Site>
+<script>
+  type Result = { url: string; meta: Record<string, string> };
+  type Hit = { data: () => Promise<Result> };
+  type Index = { search: (query: string) => Promise<{ results: Hit[] }> };
+  const input = document.querySelector<HTMLInputElement>("#search-input")!;
+  const status = document.querySelector<HTMLElement>("#search-status")!;
+  const results = document.querySelector<HTMLOListElement>("#search-results")!;
+  const more = document.querySelector<HTMLButtonElement>("#search-more")!;
+  let index: Promise<Index> | undefined,
+    generation = 0,
+    hits: Hit[] = [],
+    offset = 0;
+  const moduleUrl =
+    import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/pagefind.js";
+  function element<K extends keyof HTMLElementTagNameMap>(
+    tag: K,
+    text: string,
+    className = "",
+  ) {
+    const el = document.createElement(tag);
+    el.textContent = text;
+    el.className = className;
+    return el;
+  }
+  async function append(run: number) {
+    more.disabled = true;
+    try {
+      const batch = await Promise.all(
+        hits.slice(offset, offset + 10).map((h) => h.data()),
+      );
+      if (run !== generation) return;
+      for (const r of batch) {
+        const li = element("li", ""),
+          entry = element("div", "", "content-entry");
+        entry.append(
+          element(
+            "p",
+            [r.meta.category, r.meta.status].filter(Boolean).join(" · "),
+            "meta",
+          ),
+        );
+        const heading = element("h2", "", "content-title"),
+          link = element("a", r.meta.title);
+        link.href = r.url;
+        heading.append(link);
+        entry.append(heading, element("p", r.meta.summary, "content-summary"));
+        li.append(entry);
+        results.append(li);
+      }
+      offset += batch.length;
+      more.hidden = offset >= hits.length;
+    } catch {
+      if (run === generation)
+        status.textContent =
+          "検索結果を取得できませんでした。もう一度検索してください。";
+    } finally {
+      if (run === generation) more.disabled = false;
+    }
+  }
+  async function search() {
+    const run = ++generation,
+      query = input.value.trim();
+    results.replaceChildren();
+    hits = [];
+    offset = 0;
+    more.hidden = true;
+    if (!query) {
+      status.textContent = "キーワードを入力してください。";
+      return;
+    }
+    status.textContent = "検索中…";
+    try {
+      index ??= import(/* @vite-ignore */ moduleUrl) as Promise<Index>;
+      const result = await (await index).search(query);
+      if (run !== generation) return;
+      hits = result.results;
+      status.textContent = "検索結果：" + hits.length + "件";
+      await append(run);
+    } catch {
+      index = undefined;
+      if (run === generation)
+        status.textContent =
+          "検索索引を読み込めませんでした。再度お試しください。";
+    }
+  }
+  document.querySelector("#search-form")!.addEventListener("submit", (e) => {
+    e.preventDefault();
+    void search();
+  });
+  let timer: ReturnType<typeof setTimeout>;
+  input.addEventListener("input", () => {
+    ++generation;
+    clearTimeout(timer);
+    timer = setTimeout(() => void search(), 250);
+  });
+  more.addEventListener("click", () => void append(generation));
+</script>

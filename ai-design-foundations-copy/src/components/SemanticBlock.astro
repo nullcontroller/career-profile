@@ -1,0 +1,23 @@
+---
+import { labels } from "../lib/markdown.mjs";
+interface Props {
+  kind: keyof typeof labels;
+  title?: string;
+}
+const { kind, title } = Astro.props;
+const Tag = kind === "note" ? "aside" : kind === "case" ? "figure" : "section";
+---
+
+<Tag
+  class:list={["semantic-block", kind]}
+  data-directive={kind}
+  aria-label={title || labels[kind]}
+>
+  <header class="semantic-title">
+    <span>{labels[kind]}</span>
+    {title && title !== labels[kind] && <strong>{title}</strong>}
+  </header>
+  <div class="semantic-content">
+    <slot />
+  </div>
+</Tag>

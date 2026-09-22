@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../layouts/Site.astro";
+import ContentIndex from "../components/ContentIndex.astro";
+import { publicEntry, url } from "../lib/site";
+const entries = (await getCollection("pages", publicEntry))
+  .filter((e) => e.data.layer === "reference" && e.id !== "foundations/glossary")
+  .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+---
+
+<Site title="参考資料" section="reference">
+  <h1>参考資料</h1>
+  <p class="lead">
+    用語、数式、評価指標、責任状態を、設計時に確認できる形で整理した参照資料。
+  </p>
+  <p>
+    数学的定義、観測から計算する指標、関係を単純化した説明モデル、実装と評価で確かめる設計仮説を区別して扱います。
+  </p>
+  <ContentIndex entries={entries} />
+  <p>
+    <a href={url("overview")}>全体目次</a> ·{" "}
+    <a href={url("search")}>用語・本文を検索</a>
+  </p>
+</Site>
