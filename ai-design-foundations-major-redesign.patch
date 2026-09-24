@@ -1,0 +1,929 @@
+--- a/scripts/verify-index.mjs
++++ b/scripts/verify-index.mjs
+@@ -55,7 +55,7 @@
+     );
+ }
+ const career = load(fs.readFileSync("dist/career/index.html", "utf8"));
+-assert.equal(career("h1").text(), "Career — 立林 裕太朗");
++assert.equal(career("h1").text(), "キャリア");
+ assert(career('a[href="/ai-design-foundations/career/profile/"]').length);
+ console.log(
+   `Verified ${entries.size} summaries/search metadata, ${links} content links and Career profile.`,
+@@ -65,22 +65,25 @@
+ const page = (id) =>
+   load(fs.readFileSync("dist/" + id + "/index.html", "utf8"));
+ const top = page("");
++assert.equal(top(".sidebar").length, 0);
++const internal = page("ai-design");
+ assert.deepEqual(
+-  top(".sidebar nav a span")
+-    .map((_, e) => top(e).text())
++  internal(".sidebar nav a span")
++    .map((_, e) => internal(e).text())
+     .get(),
+   [
+-    "Home",
+-    "Career",
+-    "AI Design",
++    "ホーム",
++    "プロフィール",
++    "このサイトについて",
++    "キャリア",
++    "AI設計",
+     "AI数学論",
+-    "Practices",
+-    "Case Studies",
+-    "Articles",
++    "実践",
++    "事例",
++    "記事",
+     "全体目次",
+-    "Reference",
+-    "About",
+-    "Search",
++    "参考資料",
++    "検索",
+   ],
+ );
+ assert(!top(".sidebar summary").text().includes("設計体系"));
+@@ -151,7 +154,7 @@
+     node
+       .find(".meta")
+       .text()
+-      .match(/Article|Book|Essay|連載/),
++      .match(/記事|書籍|論考|連載|Article|Book|Essay/),
+   );
+ }
+ assert.equal(page("cases")(".case-study-index").length, 2);
+@@ -238,3 +241,4 @@
+ console.log(
+   "Verified full overview, two case books, independent series and simplified navigation.",
+ );
++
+--- a/src/components/CareerPage.astro
++++ b/src/components/CareerPage.astro
+@@ -13,7 +13,7 @@
+ ---
+ 
+ <Site
+-  title={d.title}
++  title={Astro.props.id === "profile" ? "詳細職務経歴・希望条件" : "キャリア"}
+   summary={d.summary}
+   ogImage="og/career.png"
+   ogType="profile"
+@@ -21,15 +21,15 @@
+   headings={headings}
+ >
+   <nav class="breadcrumb">
+-    <a href={url()}>Home</a> / <a href={url("career")}>Career</a>
++    <a href={url()}>ホーム</a> / <a href={url("career")}>キャリア</a>
+   </nav>
+   <article data-pagefind-body>
+-    <h1 data-pagefind-meta="title">{d.title}</h1>
++    <h1 data-pagefind-meta="title">{Astro.props.id === "profile" ? "詳細職務経歴・希望条件" : "キャリア"}</h1>
+     <p class="lead" data-pagefind-meta="summary">
+       {d.summary}
+     </p>
+     <p class="meta">
+-      <span data-pagefind-meta="category">Career</span> ·{" "}
++      <span data-pagefind-meta="category">キャリア</span> ·{" "}
+       <span data-pagefind-meta="status">{d.status}</span>
+     </p>
+     <nav class="topic-navigation" aria-label="キャリア情報">
+--- a/src/layouts/Site.astro
++++ b/src/layouts/Site.astro
+@@ -11,6 +11,7 @@
+   ogType?: "website" | "article" | "profile";
+   section?: string;
+   headings?: { depth: number; slug: string; text: string }[];
++  showSidebar?: boolean;
+ }
+ const {
+   title,
+@@ -20,6 +21,7 @@
+   ogType = "website",
+   section,
+   headings = [],
++  showSidebar = true,
+ } = Astro.props;
+ const documentTitle = `${title} | 立林 裕太朗`;
+ const canonicalUrl = canonical?.startsWith(
+@@ -107,17 +109,20 @@
+         立林 裕太朗<span>Applied AI / System Architecture</span>
+       </a>
+       <div class="header-links">
+-        <a href={url("overview")}>全体目次</a>
++        <a href={url("ai-design")}>AI設計</a>
++        <a href={url("ai-mathematics")}>AI数学論</a>
++        <a href={url("cases")}>事例</a>
++        <a href={url("articles")}>記事</a>
++        <a href={url("career")}>キャリア</a>
+         <a href={url("search")}>検索</a>
+-        <a href={url("about")}>About</a>
+-        <a href={url("career")}>Career</a>
++        <a href={url("about")}>このサイトについて</a>
+         <button id="theme" type="button" aria-label="配色を切り替える">
+           配色切替
+         </button>
+       </div>
+     </header>
+-    <div class="shell">
+-      <aside class="sidebar" aria-label="主要ナビゲーション">
++    <div class:list={["shell", !showSidebar && "landing-shell"]}>
++      {showSidebar && <aside class="sidebar" aria-label="主要ナビゲーション">
+         <details open>
+           <summary>ナビゲーション</summary>
+           <nav>
+@@ -136,11 +141,11 @@
+             ))}
+           </nav>
+         </details>
+-      </aside>
++      </aside>}
+       <main id="main" tabindex="-1">
+         <slot />
+       </main>
+-      <aside class="toc" aria-label="ページ内目次">
++      {showSidebar && <aside class="toc" aria-label="ページ内目次">
+         {headings.length > 0 && (
+           <>
+             <p>このページ</p>
+@@ -155,14 +160,15 @@
+             </ol>
+           </>
+         )}
+-      </aside>
++      </aside>}
+     </div>
+     <footer class="site-footer">
+       立林 裕太朗 · Applied AI / System Architecture
+       <nav aria-label="フッター">
+-        <a href={url("career")}>Career</a> ·{" "}
+-        <a href={url("articles")}>Articles</a> ·{" "}
+-        <a href={url("about")}>About</a>
++        <a href={url("profile")}>プロフィール</a> ·{" "}
++        <a href={url("career")}>キャリア</a> ·{" "}
++        <a href={url("articles")}>記事</a> ·{" "}
++        <a href={url("about")}>このサイトについて</a>
+       </nav>
+     </footer>
+     <script>
+--- a/src/lib/navigation.ts
++++ b/src/lib/navigation.ts
+@@ -3,13 +3,15 @@
+ export type Entry = CollectionEntry<"pages">;
+ export const navigation = [
+   [
+-    { path: "", title: "Home", summary: "立林 裕太朗の公開サイト" },
+-    { path: "career", title: "Career", summary: "職務経験・希望する役割" },
++    { path: "", title: "ホーム", summary: "立林 裕太朗の公開サイト" },
++    { path: "profile", title: "プロフィール", summary: "人物紹介と技術背景" },
++    { path: "about", title: "このサイトについて", summary: "サイトの目的と設計" },
++    { path: "career", title: "キャリア", summary: "職務経験・希望する役割" },
+   ],
+   [
+     {
+       path: "ai-design",
+-      title: "AI Design",
++      title: "AI設計",
+       summary: "業務システムへの組込み",
+     },
+     {
+@@ -17,21 +19,20 @@
+       title: "AI数学論",
+       summary: "AIの性質を理解する",
+     },
+-    { path: "practices", title: "Practices", summary: "業務・組織への適用" },
+-    { path: "cases", title: "Case Studies", summary: "実務事例のBook 2冊" },
++    { path: "practices", title: "実践", summary: "業務・組織への適用" },
++    { path: "cases", title: "事例", summary: "実務事例のBook 2冊" },
+   ],
+   [
+     {
+       path: "articles",
+-      title: "Articles",
++      title: "記事",
+       summary: "単発記事・Book・連載・Essay",
+     },
+   ],
+   [
+     { path: "overview", title: "全体目次", summary: "全コンテンツを見渡す" },
+-    { path: "reference", title: "Reference", summary: "用語・数式・参照資料" },
+-    { path: "about", title: "About", summary: "このサイトについて" },
+-    { path: "search", title: "Search", summary: "サイト内を検索" },
++    { path: "reference", title: "参考資料", summary: "用語・数式・参照資料" },
++        { path: "search", title: "検索", summary: "サイト内を検索" },
+   ],
+ ];
+ export const designTopics = [
+@@ -86,7 +87,7 @@
+     reference: "reference",
+   })[layer] || "start-here";
+ export const publicationType = (e: Entry) =>
+-  ({ article: "Article", book: "Book", series: "連載", essay: "Essay" })[
++  ({ article: "記事", book: "書籍", series: "連載", essay: "論考" })[
+     e.data.publication_format || "article"
+   ];
+ export const isPublication = (e: Entry) =>
+--- a/src/lib/site.ts
++++ b/src/lib/site.ts
+@@ -20,11 +20,11 @@
+ 
+ export const layers = {
+   "ai-mathematics": "AI数学論",
+-  "ai-design": "AI Design",
+-  career: "Career",
+-  reference: "Reference",
+-  practice: "Practice / 実践",
+-  case: "Case / 実務事例",
+-  publication: "Publication / 公開物",
++  "ai-design": "AI設計",
++  career: "キャリア",
++  reference: "参考資料",
++  practice: "実践",
++  case: "事例",
++  publication: "記事",
+ } as const;
+ export const layerLabel = (layer: keyof typeof layers) => layers[layer];
+--- a/src/pages/about.astro
++++ b/src/pages/about.astro
+@@ -11,11 +11,11 @@
+   </p>
+   <ul>
+     <li>
+-      <a href={url("career")}>Career</a>
++      <a href={url("career")} >キャリア</a>
+       ：職務経験、専門領域、今後の方向性と希望条件。
+     </li>
+     <li>
+-      <a href={url("ai-design")}>AI Design</a>
++      <a href={url("ai-design")}>AI設計</a>
+       ：AIを業務システムへ組み込むための設計。
+     </li>
+     <li>
+@@ -23,14 +23,14 @@
+       ：AIの振る舞いを数学・確率・モデルから理解する。
+     </li>
+     <li>
+-      <a href={url("practices")}>Practices</a>：業務・組織・開発への適用。
++      <a href={url("practices")}>実践</a>：業務・組織・開発への適用。
+     </li>
+     <li>
+-      <a href={url("cases")}>Case Studies</a>
++      <a href={url("cases")}>事例</a>
+       ：実務での課題、設計判断、実装と結果。
+     </li>
+     <li>
+-      <a href={url("articles")}>Articles</a>：単発記事・Book・連載・Essay。
++      <a href={url("articles")}>記事</a>：単発記事・Book・連載・Essay。
+     </li>
+   </ul>
+   <h2>AI Design Foundations</h2>
+--- a/src/pages/ai-design/index.astro
++++ b/src/pages/ai-design/index.astro
+@@ -8,16 +8,25 @@
+ ---
+ 
+ <Site
+-  title="AI Design"
++  title="AI設計"
+   section="ai-design"
+   ogImage="og/ai-design-foundations.png"
+ >
+-  <h1>AI Design</h1>
++  <h1>AI設計</h1>
+   <p class="lead">AIの性質を前提として、業務システムへどう組み込むか。</p>
+   <p>
+     適用判断から責任境界、評価、運用までを扱う現在の設計知識です。数学の章を先に読まなくても、必要なテーマから参照できます。
+   </p>
+-  <nav class="topic-navigation" aria-label="AI Designのテーマ">
++  <section class="recommended-path" aria-labelledby="design-path-heading">
++    <h2 id="design-path-heading">まず読む設計の流れ</h2>
++    <p>AIをどこへ使うか、責任をどう分けるか、どう運用するかの順に読み進めます。</p>
++    <ol class="reading-route">
++      <li><a href={url("ai-design/applicability")}>AI適用判断</a> — 使う仕事と委任レベルを決める</li>
++      <li><a href={url("ai-design/responsibility-control")}>責任境界・制御</a> — 生成・受理・実行を分ける</li>
++      <li><a href={url("ai-design/architecture")}>Architecture</a> — 業務システム全体へ組み込む</li>
++    </ol>
++  </section>
++  <nav class="topic-navigation" aria-label="AI設計のテーマ">
+     {designTopics.map(([key, title]) => (
+       <a href={url("ai-design/" + key)}>{title}</a>
+     ))}
+--- a/src/pages/articles.astro
++++ b/src/pages/articles.astro
+@@ -22,19 +22,19 @@
+ const topics = [...new Set(entries.flatMap(publicationTopics))];
+ ---
+ 
+-<Site title="Articles" section="articles">
+-  <h1>Articles</h1>
++<Site title="記事" section="articles">
++  <h1>記事</h1>
+   <p class="lead">単発記事・Book・連載・Essayを、形式とテーマから探す。</p>
+   <p>
+     独立した公開物を、形式・テーマから探せます。設計知識の正本は
+-    <a href={url("ai-design")}>AI Design</a>、事例の適用過程は
+-    <a href={url("cases")}>Case Studies</a>へ。
++    <a href={url("ai-design")}>AI設計</a>、事例の適用過程は
++    <a href={url("cases")}>事例</a>へ。
+   </p>
+   <nav class="topic-navigation" aria-label="出版形式">
+     <a href={url("overview")}>全体目次</a>
+     <a href={url("books")}>実務事例のBook 2冊</a>
+     <a href={url("series")}>連載</a>
+-    <a href={url("essays")}>Essays</a>
++    <a href={url("essays")}>論考</a>
+   </nav>
+   <form
+     class="publication-filters"
+@@ -45,10 +45,10 @@
+       Format
+       <select name="type">
+         <option value="">すべて</option>
+-        <option>Article</option>
+-        <option>Book</option>
++        <option>記事</option>
++        <option>書籍</option>
+         <option>連載</option>
+-        <option>Essay</option>
++        <option>論考</option>
+       </select>
+     </label>
+     <label>
+--- a/src/pages/books.astro
++++ b/src/pages/books.astro
+@@ -7,11 +7,11 @@
+ const all = await getCollection("pages", publicEntry);
+ ---
+ 
+-<Site title="Books — 実務事例" section="cases">
+-  <h1>Books — 実務事例</h1>
++<Site title="書籍 — 実務事例" section="cases">
++  <h1>書籍 — 実務事例</h1>
+   <p class="lead">実務への適用を章立てで追う、2冊のBook。</p>
+   <p>
+-    <a href={url("cases")}>Case Studies</a> ·{" "}
++    <a href={url("cases")}>事例</a> ·{" "}
+     <a href={url("series")}>設計原則の連載</a> ·{" "}
+     <a href={url("overview")}>全体目次</a>
+   </p>
+--- a/src/pages/cases.astro
++++ b/src/pages/cases.astro
+@@ -7,9 +7,9 @@
+ const all = await getCollection("pages", publicEntry);
+ ---
+ 
+-<Site title="Case Studies" section="cases">
+-  <h1>Case Studies</h1>
+-  <p class="lead">実務での課題・設計判断・実装・結果を、2冊のBookで読む。</p>
++<Site title="事例" section="cases">
++  <h1>事例</h1>
++  <p class="lead">実務での課題・設計判断・実装・結果を、2冊のBookで読む。</p>\n  <p>AI Designで整理した原則を、実務上の問題、設計判断、実装、結果、得られた知見へつなげて紹介します。</p>
+   <p>まず概要から全体を掴み、目次から必要な章へ進めます。</p>
+   <nav class="topic-navigation" aria-label="全体と公開物への入口">
+     <a href={url("overview")}>全体目次</a>
+--- a/src/pages/index.astro
++++ b/src/pages/index.astro
+@@ -1,65 +1,90 @@
+ ---
+ import Site from "../layouts/Site.astro";
+ import { url } from "../lib/site";
+-const entries = [
+-  [
+-    "career",
+-    "Career",
+-    "技術・実務経験と今後の方向性。詳細な職務経歴、希望する役割・働き方。",
+-  ],
+-  [
+-    "ai-design",
+-    "AI Design",
+-    "AI・人間・既存システムの責任境界から、業務システムへの組込みを設計する。",
+-  ],
+-  [
+-    "ai-mathematics",
+-    "AI数学論",
+-    "確率・モデル・生成条件から、AIがなぜそのように振る舞うかを理解する。",
+-  ],
+-  ["practices", "Practices", "設計原則を業務・組織・開発へ適用する。"],
+-  [
+-    "cases",
+-    "Case Studies",
+-    "Knowledge再構築・QA / RAGと、複数AIを用いたソフトウェア改善の実務事例。",
+-  ],
+-  [
+-    "articles",
+-    "Articles",
+-    "これまで執筆した単発記事・Book・連載・Essayを読む。",
+-  ],
+-];
+ ---
+ 
+-<Site title="Home" section="">
+-  <section class="hero">
++<Site
++  title="ホーム"
++  summary="立林裕太朗の個人技術サイト。Applied AIとシステムアーキテクチャを軸に、AIを業務システムへ組み込むための設計原則、理論的背景、実務事例を公開しています。"
++  section="home"
++  showSidebar={false}
++>
++  <section class="hero landing-hero">
++    <p class="eyebrow">APPLIED AI / SYSTEM ARCHITECTURE</p>
+     <h1>立林 裕太朗</h1>
+-    <p class="lead">Applied AI × システム企画・アーキテクチャ</p>
+-    <p>
+-      ソフトウェア開発、プロジェクトマネジメント、生成AI / RAG、Knowledge /
+-      Context設計等の経験を背景に、AI・人間・既存システムを含むシステム設計に取り組んでいます。
+-    </p>
+-    <nav class="library-links" aria-label="最初の入口">
+-      <a href={url("career")}>キャリア概要を見る</a>
+-      <a href={url("overview")}>全体目次から探す</a>
++    <p class="landing-title">AIを、業務で使える形に設計する。</p>
++    <p class="lead">AIをどこに使うか。人間とAIの責任をどう分けるか。既存システムとどう組み合わせるか。</p>
++    <p>その設計原則・理論・実践を、技術知識として整理しています。</p>
++    <nav class="library-links" aria-label="主要導線">
++      <a class="primary-link" href={url("ai-design")}>まずAI設計を読む →</a>
++      <a href={url("profile")}>プロフィールを見る</a>
+     </nav>
+   </section>
+-  <div class="document-list">
+-    {entries.map(([path, title, summary]) => (
+-      <section class="content-entry">
+-        <h2 class="content-title">
+-          <a href={url(path)}>{title}</a>
+-        </h2>
+-        <p class="content-summary">{summary}</p>
+-      </section>
+-    ))}
+-  </div>
+-  <section>
+-    <h2>AI Design Foundations</h2>
+-    <p>
+-      AI Design・AI数学論・Practices・Case
+-      Studiesを通じて、AIを業務システムへ組み込むための技術知識と設計体系を整理しています。
+-    </p>
+-    <a href={url("ai-design")}>設計知識から読む →</a>
++
++  <section class="landing-section start-here" aria-labelledby="start-heading">
++    <p class="eyebrow">START HERE</p>
++    <h2 id="start-heading">はじめて読む方へ</h2>
++    <p class="section-intro">最初はこの3つから。設計、理論、実例を順に読めます。</p>
++    <div class="start-grid">
++      <a class="start-entry" href={url("ai-design")}>
++        <span class="start-number">01</span>
++        <h3>AI設計</h3>
++        <p>AIを業務システムへ組み込むための設計原則。AI・人間・既存システムの役割と責任を設計します。</p>
++        <span class="entry-cta">AI設計から読む →</span>
++      </a>
++      <a class="start-entry" href={url("ai-mathematics")}>
++        <span class="start-number">02</span>
++        <h3>AI数学論</h3>
++        <p>AIがなぜそのように振る舞うのか。確率・生成条件・モデルの性質から設計判断の背景を理解します。</p>
++        <span class="entry-cta">仕組みから理解する →</span>
++      </a>
++      <a class="start-entry" href={url("cases")}>
++        <span class="start-number">03</span>
++        <h3>事例</h3>
++        <p>設計原則を実際の業務・既存システムへ適用した実務事例。</p>
++        <span class="entry-cta">実例を見る →</span>
++      </a>
++    </div>
++  </section>
++
++  <section class="landing-section reading-path" aria-labelledby="reading-heading">
++    <p class="eyebrow">READING PATH</p>
++    <h2 id="reading-heading">どう読むか</h2>
++    <div class="path-grid">
++      <div><span>01</span><h3>AI設計</h3><p>まず、AIをどこへ使い、人間や既存システムとどう役割分担するかを読む。</p></div>
++      <div><span>02</span><h3>AI数学論</h3><p>なぜその設計が必要なのか、AIの性質を理論から探る。</p></div>
++      <div><span>03</span><h3>事例</h3><p>実際の業務・システムでどう適用したかを見る。</p></div>
++    </div>
++  </section>
++
++  <section class="landing-section featured-ideas" aria-labelledby="ideas-heading">
++    <p class="eyebrow">QUESTIONS</p>
++    <h2 id="ideas-heading">こんな問いを考えています</h2>
++    <ul>
++      <li><a href={url("ai-design/applicability")}>AIを使うべき仕事と、使わない方がよい仕事は何か</a></li>
++      <li><a href={url("ai-design/responsibility-control")}>AIの判断に誰が責任を持つのか</a></li>
++      <li><a href={url("ai-design/knowledge-context")}>RAGは何を解決し、何を解決しないのか</a></li>
++      <li><a href={url("ai-design/software-engineering")}>AIと既存ソフトウェアをどう分担するか</a></li>
++      <li><a href={url("ai-design/evaluation-hitl")}>AIが生成した成果物をどう評価するか</a></li>
++      <li><a href={url("ai-design/lifecycle-operations")}>システムを長期的に変更可能な状態へどう保つか</a></li>
++    </ul>
++  </section>
++
++  <section class="landing-section author-strip" aria-labelledby="author-heading">
++    <p class="eyebrow">ABOUT THE AUTHOR</p>
++    <h2 id="author-heading">About</h2>
++    <p>立林裕太朗。ソフトウェア開発、プロジェクトマネジメント、生成AI / RAG、Knowledge / Context設計等を経験。現在はApplied AIとシステムアーキテクチャを軸に、AI・人間・既存システムを含む業務システム設計を考えています。</p>
++    <nav class="library-links" aria-label="著者情報">
++      <a href={url("career")}>キャリアを見る →</a>
++      <a href={url("career/profile")}>詳細職務経歴を見る →</a>
++    </nav>
++  </section>
++
++  <section class="landing-section publications-strip" aria-labelledby="publications-heading">
++    <p class="eyebrow">PUBLICATIONS</p>
++    <h2 id="publications-heading">記事</h2>
++    <p>設計論・技術解説・Essay・過去のPublicationをまとめています。</p>
++    <a href={url("articles")}>記事を見る →</a>
+   </section>
+ </Site>
++
+--- a/src/pages/overview.astro
++++ b/src/pages/overview.astro
+@@ -13,13 +13,13 @@
+   ["practice", "Practices", "業務・組織・開発へ適用する。"],
+ ] as const;
+ const anchors = [
+-  ["career", "Career"],
++  ["career", "キャリア"],
+   ["ai-mathematics", "AI数学論"],
+-  ["ai-design", "AI Design"],
+-  ["practice", "Practices"],
++  ["ai-design", "AI設計"],
++  ["practice", "実践"],
+   ["books", "実務Book"],
+   ["series", "連載"],
+-  ["articles", "単発記事・Essay"],
++  ["articles", "記事"],
+   ["reference", "参照資料"],
+ ];
+ ---
+@@ -39,7 +39,7 @@
+     ))}
+   </nav>
+   <section>
+-    <h2 id="career">Career</h2>
++    <h2 id="career">キャリア</h2>
+     <p>
+       <a href={url("career")}>キャリア概要・専門領域・今後の方向性</a>
+     </p>
+@@ -109,7 +109,7 @@
+       )}
+     />
+     <p>
+-      <a href={url("reference")}>Reference</a> ·{" "}
++      <a href={url("reference")}>参考資料</a> ·{" "}
+       <a href={url("search")}>検索</a>
+     </p>
+   </section>
+--- a/src/pages/practices.astro
++++ b/src/pages/practices.astro
+@@ -10,8 +10,8 @@
+   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+ ---
+ 
+-<Site title="Practices" section="practices">
+-  <h1>Practices</h1>
++<Site title="実践" section="practices">
++  <h1>実践</h1>
+   <p class="lead">
+     設計原則を、AI導入・教育・横展開・開発Workflowへ適用する。
+   </p>
+--- a/src/pages/profile.astro
++++ b/src/pages/profile.astro
+@@ -0,0 +1,32 @@
++---
++import Site from "../layouts/Site.astro";
++import { url } from "../lib/site";
++---
++
++<Site title="プロフィール" section="profile" ogType="profile" ogImage="og/site.png">
++  <nav class="breadcrumb"><a href={url()}>ホーム</a> / プロフィール</nav>
++  <article data-pagefind-body>
++    <header class="document-header">
++      <p class="eyebrow">PROFILE</p>
++      <h1 data-pagefind-meta="title">プロフィール</h1>
++      <p class="lead" data-pagefind-meta="summary">立林 裕太朗</p>
++    </header>
++    <div class="prose">
++      <p>ソフトウェア開発、プロジェクトマネジメント、生成AI / RAG、Knowledge / Context設計などを経験してきました。</p>
++      <p>現在はApplied AI、システム企画・アーキテクチャを中心に、AI・人間・既存システムを含む業務システムの設計に取り組んでいます。</p>
++      <h2>これまでの経験</h2>
++      <ul>
++        <li>2016年よりソフトウェア開発に従事</li>
++        <li>Windowsアプリケーション開発、プロジェクトマネジメント</li>
++        <li>生成AIを活用したQA / RAGシステム</li>
++        <li>既存ソフトウェアへのAI活用とKnowledge / Context設計</li>
++      </ul>
++      <h2>設計で重視していること</h2>
++      <p>AIそのものを目的とせず、「何をAIに任せるか」「何を人間が判断するか」「何を既存ソフトウェアに任せるか」という責任境界を含めたシステム設計を重視しています。</p>
++      <p>継続的に担当する製品・システムについて理解を蓄積し、利用・運用から得た知見を設計へ戻しながら、長期的に改善していく仕事を好みます。</p>
++      <h2>次に読む</h2>
++      <p>詳細な職務経歴・今後の方向性・希望条件は<a href={url("career")}>キャリア</a>で説明しています。</p>
++      <p><a href={url("about")}>このサイトについて</a>では、この技術サイトの目的と設計を紹介しています。</p>
++    </div>
++  </article>
++</Site>
+--- a/src/pages/reference.astro
++++ b/src/pages/reference.astro
+@@ -8,8 +8,8 @@
+   .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+ ---
+ 
+-<Site title="Reference" section="reference">
+-  <h1>Reference</h1>
++<Site title="参考資料" section="reference">
++  <h1>参考資料</h1>
+   <p class="lead">
+     用語、数式、評価指標、責任状態を、設計時に確認できる形で整理した参照資料。
+   </p>
+--- a/src/pages/sitemap.xml.ts
++++ b/src/pages/sitemap.xml.ts
+@@ -5,6 +5,7 @@
+ const manualRoutes = [
+   "",
+   "about",
++  "profile",
+   "ai-design",
+   "ai-mathematics",
+   "articles",
+--- a/src/pages/start-here.astro
++++ b/src/pages/start-here.astro
+@@ -3,22 +3,22 @@
+ import { url } from "../lib/site";
+ ---
+ 
+-<Site title="Start Here">
+-  <h1>Start Here</h1>
++<Site title="はじめに">
++  <h1>はじめに</h1>
+   <p class="lead">仕組みの理解から、設計・実践・事例へ。</p>
+   <ol class="reading-route">
+     <li>
+       <a href={url("ai-mathematics")}>AI数学論</a> — なぜそう振る舞うか
+     </li>
+     <li>
+-      <a href={url("ai-design")}>AI Design</a> — その性質を前提にどう設計するか
++      <a href={url("ai-design")}>AI設計</a> — その性質を前提にどう設計するか
+     </li>
+     <li>
+-      <a href={url("practices")}>Practices</a> —
++      <a href={url("practices")}>実践</a> —
+       業務・組織・開発へどう適用するか
+     </li>
+     <li>
+-      <a href={url("cases")}>Case Studies</a> — 実際にどう適用したか
++      <a href={url("cases")}>事例</a> — 実際にどう適用したか
+     </li>
+   </ol>
+   <p>
+@@ -27,6 +27,6 @@
+   </p>
+   <p>
+     <a href={url("overview")}>全体目次で探す</a> ·{" "}
+-    <a href={url("career")}>Career</a>
++    <a href={url("career")}>キャリア</a>
+   </p>
+ </Site>
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -38,8 +38,8 @@
+   margin: 0;
+   background: var(--bg);
+   color: var(--ink);
+-  font-size: 16px;
+-  line-height: 1.85;
++  font-size: 17px;
++  line-height: 1.78;
+ }
+ a {
+   color: var(--accent);
+@@ -72,12 +72,12 @@
+   margin: 0.6rem 0 1.3rem;
+ }
+ h2 {
+-  font-size: 1.45rem;
+-  margin: 2.5rem 0 1rem;
++  font-size: 1.55rem;
++  margin: 2.8rem 0 1.15rem;
+ }
+ h3 {
+-  font-size: 1.18rem;
+-  margin: 2rem 0 0.75rem;
++  font-size: 1.25rem;
++  margin: 2.2rem 0 0.85rem;
+ }
+ p {
+   margin: 0.8rem 0 1.15rem;
+@@ -217,18 +217,18 @@
+ .sidebar nav a {
+   display: block;
+   text-decoration: none;
+-  padding: 0.65rem 0.6rem;
++  padding: 0.75rem 0.6rem;
+   color: var(--ink);
+   border-left: 2px solid transparent;
+ }
+ .sidebar nav a span {
+   display: block;
+-  font-size: 0.88rem;
++  font-size: 0.98rem;
+   font-weight: 600;
+ }
+ .sidebar nav small {
+   display: block;
+-  font-size: 0.67rem;
++  font-size: 0.82rem;
+   color: var(--muted);
+   margin-top: 2px;
+ }
+@@ -418,12 +418,12 @@
+   overflow-wrap: anywhere;
+ }
+ .document-list article {
+-  padding: 1.5rem 0;
++  padding: 2rem 0;
+   border-bottom: 1px solid var(--line);
+ }
+ .document-list h2 {
+-  font-size: 1.25rem;
+-  margin: 0.5rem 0;
++  font-size: 1.32rem;
++  margin: 0.6rem 0;
+ }
+ .document-list h2 a {
+   color: var(--ink);
+@@ -605,7 +605,7 @@
+     padding-top: 0.4rem;
+   }
+   .sidebar nav a {
+-    padding: 0.35rem;
++    padding: 0.55rem 0.4rem;
+   }
+   .sidebar nav small {
+     display: none;
+@@ -643,7 +643,7 @@
+     gap: 1rem;
+   }
+   .prose {
+-    font-size: 0.94rem;
++    font-size: 1rem;
+   }
+   h2 {
+     font-size: 1.25rem;
+@@ -674,7 +674,7 @@
+   grid-template-columns: 1fr;
+ }
+ .architecture-map li {
+-  padding: 0.65rem 0.6rem;
++  padding: 0.75rem 0.6rem;
+ }
+ .architecture-map li:last-child::after {
+   content: "↺";
+@@ -726,16 +726,16 @@
+   min-width: 0;
+ }
+ .content-entry .content-title {
+-  font-size: 1.08rem;
+-  line-height: 1.6;
++  font-size: 1.18rem;
++  line-height: 1.65;
+   font-weight: 650;
+   margin: 0.35rem 0;
+ }
+ .content-entry .content-summary {
+   margin: 0.4rem 0;
+   color: var(--muted);
+-  font-size: 0.9rem;
+-  line-height: 1.75;
++  font-size: 1rem;
++  line-height: 1.78;
+   font-weight: 400;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+@@ -882,3 +882,132 @@
+     grid-template-columns: 1fr 1fr;
+   }
+ }
++/* Editorial landing page */
++.landing-shell {
++  display: block;
++  max-width: 1060px;
++  margin: 0 auto;
++}
++.landing-shell > main {
++  max-width: 960px;
++  margin: 0 auto;
++  padding: 4.8rem 3rem 6rem;
++}
++.landing-hero {
++  max-width: 760px;
++  padding-bottom: 3.8rem;
++}
++.landing-hero h1 {
++  font-size: clamp(2.5rem, 6vw, 4.5rem);
++  margin: 0.5rem 0 0.7rem;
++}
++.landing-title {
++  font-size: clamp(1.6rem, 3vw, 2.35rem);
++  line-height: 1.4;
++  font-weight: 700;
++  margin: 0.3rem 0 1.25rem;
++}
++.landing-hero .lead {
++  max-width: 660px;
++  font-size: 1.2rem;
++}
++.landing-section {
++  border-top: 1px solid var(--line);
++  padding: 3.1rem 0;
++}
++.section-intro {
++  color: var(--muted);
++  max-width: 700px;
++}
++.start-grid,
++.path-grid {
++  display: grid;
++  grid-template-columns: repeat(3, minmax(0, 1fr));
++  gap: 1.2rem;
++}
++.start-entry {
++  display: block;
++  min-height: 260px;
++  padding: 1.4rem 1.35rem;
++  border: 1px solid var(--line);
++  background: var(--surface);
++  color: var(--ink);
++  text-decoration: none;
++  transition: border-color 120ms ease, transform 120ms ease;
++}
++.start-entry:hover,
++.start-entry:focus-visible {
++  border-color: var(--accent);
++  transform: translateY(-2px);
++}
++.start-entry h3 {
++  margin: 0.75rem 0 0.6rem;
++  font-size: 1.4rem;
++}
++.start-entry p {
++  color: var(--muted);
++  margin: 0 0 1.3rem;
++}
++.start-number,
++.path-grid > div > span {
++  color: var(--accent);
++  font-size: 0.82rem;
++  letter-spacing: 0.14em;
++  font-weight: 700;
++}
++.entry-cta {
++  color: var(--accent);
++  font-weight: 700;
++}
++.path-grid > div {
++  padding-right: 1rem;
++}
++.path-grid h3 {
++  margin: 0.5rem 0;
++}
++.path-grid p {
++  color: var(--muted);
++  margin-top: 0.35rem;
++}
++.featured-ideas ul {
++  columns: 2;
++  column-gap: 3rem;
++  margin: 0;
++}
++.featured-ideas li {
++  break-inside: avoid;
++  margin: 0.7rem 0;
++}
++.author-strip,
++.publications-strip {
++  max-width: 760px;
++}
++.publications-strip {
++  padding-bottom: 0;
++}
++@media (max-width: 760px) {
++  .landing-shell > main {
++    padding: 2.7rem 1.15rem 4rem;
++  }
++  .landing-hero {
++    padding-bottom: 2.5rem;
++  }
++  .landing-hero h1 {
++    font-size: 2.8rem;
++  }
++  .landing-hero .lead {
++    font-size: 1.08rem;
++  }
++  .start-grid,
++  .path-grid {
++    grid-template-columns: 1fr;
++    gap: 0.9rem;
++  }
++  .start-entry {
++    min-height: 0;
++  }
++  .featured-ideas ul {
++    columns: 1;
++  }
++}
++

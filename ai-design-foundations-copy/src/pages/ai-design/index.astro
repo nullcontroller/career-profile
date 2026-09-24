@@ -17,6 +17,15 @@ const all = await getCollection("pages", publicEntry);
   <p>
     適用判断から責任境界、評価、運用までを扱う現在の設計知識です。数学の章を先に読まなくても、必要なテーマから参照できます。
   </p>
+  <section class="recommended-path" aria-labelledby="design-path-heading">
+    <h2 id="design-path-heading">まず読む設計の流れ</h2>
+    <p>AIをどこへ使うか、責任をどう分けるか、どう運用するかの順に読み進めます。</p>
+    <ol class="reading-route">
+      <li><a href={url("ai-design/applicability")}>AI適用判断</a> — 使う仕事と委任レベルを決める</li>
+      <li><a href={url("ai-design/responsibility-control")}>責任境界・制御</a> — 生成・受理・実行を分ける</li>
+      <li><a href={url("ai-design/architecture")}>Architecture</a> — 業務システム全体へ組み込む</li>
+    </ol>
+  </section>
   <nav class="topic-navigation" aria-label="AI設計のテーマ">
     {designTopics.map(([key, title]) => (
       <a href={url("ai-design/" + key)}>{title}</a>

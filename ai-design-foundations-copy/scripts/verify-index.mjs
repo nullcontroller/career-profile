@@ -65,9 +65,11 @@ console.log(
 const page = (id) =>
   load(fs.readFileSync("dist/" + id + "/index.html", "utf8"));
 const top = page("");
+assert.equal(top(".sidebar").length, 0);
+const internal = page("ai-design");
 assert.deepEqual(
-  top(".sidebar nav a span")
-    .map((_, e) => top(e).text())
+  internal(".sidebar nav a span")
+    .map((_, e) => internal(e).text())
     .get(),
   [
     "ホーム",
